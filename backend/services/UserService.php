@@ -33,6 +33,7 @@
 
 		public function login($usuario, $password) {
 			$sql_usuario = "SELECT * FROM usuarios WHERE usuario= '$usuario'";
+      $query = $this->db->prepare("SELECT * FROM usuarios WHERE correo = :username AND password = :pass");
 			$result = $this->db->query($sql_usuario);
 			if ($result->num_rows == 1) {
 				$user = $result->fetch_assoc();
