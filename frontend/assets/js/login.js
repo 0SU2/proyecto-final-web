@@ -1,5 +1,7 @@
 const registrarForm = document.getElementById('registrarForm') || null;
 const loginForm = document.getElementById('loginForm') || null;
+const buttonSignIn = document.getElementById('gotSignIn') || null
+const buttonSingUp = document.getElementById('gotSignUp')
 
 if(loginForm) {
   loginForm.addEventListener('submit', (event) => {
@@ -38,4 +40,16 @@ if(registrarForm) {
       console.log('server error =>', err)
     });
   });
+}
+
+if(buttonSignIn) {
+  buttonSignIn.addEventListener('click', () => {
+    window.location.href = '../frontend/register.html'
+  })
+}
+
+if(buttonSingUp) {
+  buttonSingUp.addEventListener('click' , () => {
+    window.location.href = '../frontend/login.html'
+  })
 }
