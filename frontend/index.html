@@ -16,29 +16,13 @@
     <!-- Bootstrap core CSS -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
     <!-- Custom styles for this template -->
     <link href="./assets/css/product.css" rel="stylesheet">
   </head>
   <body>
     
-<header class="">
-  <div class="container">
+<header class="header-page">
+  <div class="container ">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <a href="./index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <!-- Ruta del logo -->
@@ -57,14 +41,14 @@
 </header>
 
 <main>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
+  <div class="position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-2 mx-auto my-3">
       <h1 class="display-4 fw-normal">Bienvenido a AVIS</h1>
       <p class="lead fw-normal">La mejor experiencia de renta de autos. Encuentra el vehículo perfecto para tu viaje.</p>
       <a class="btn btn-outline-secondary" href="#">Reserva ahora</a>
     </div>
     <!-- Ruta de la imagen principal -->
-    <div class="product-device shadow-sm d-none d-md-block" style="background-image: url('./assets/images/principal.jpg'); background-size: cover; height: 300px;"></div>
+    <div class="d-none d-md-block" style="background-image: url('./assets/images/car-png-16829.png'); background-size: cover; height: 300px;"></div>
   </div>
 
   <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
@@ -106,38 +90,64 @@
   </div>
 </main>
 
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md">
-      <!-- Ruta del logo en el pie de página -->
-      <img src="./assets/images/logo.jpg" alt="AVIS Logo" width="24" height="24" class="d-block mb-2">
-      <small class="d-block mb-3 text-muted">&copy; 2021–2024 AVIS</small>
+<footer class="footer-page">
+    <div class="container container-responsive py-5">
+      <div class="row">
+        <div class="col-sm-12 col-lg d-flex justify-content-center justify-content-lg-start my-3 my-lg-0">
+          <a class="navbar-brand me-0" href="index.html" accesskey="a">
+            <img alt="avis méxico logo" class="img-fluid d-block me-0 animation fade-in" width="90" height="31" src="https://avis.mx/images/logos/avis-logo-dark.webp" style="animation-duration: 500ms;">
+          </a>
+        </div>
+      </div>
+        <hr class="my-4">
+        <div class="row d-flex justify-content-between">
+
+          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Servicios</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a>
+              </li>
+              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a>
+              </li>
+              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Ayuda</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a href="" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
+              </li>
+              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a href="" class="link-secondary" accesskey="g">Política de Privacidad</a>
+              </li>
+              <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a href="" class="link-secondary" accesskey="h">Términos y Condiciones</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Compañía</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="#">Sobre Nosotros</a>
+              </li>
+              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="#">Contacto</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <hr class="my-4">
     </div>
-    <div class="col-6 col-md">
-      <h5>Servicios</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a></li>
-        <li><a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a></li>
-        <li><a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Ayuda</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="">Guía de Renta</a></li>
-        <li><a class="link-secondary" href="#">Preguntas Frecuentes</a></li>
-        <li><a class="link-secondary" href="#">Política de Privacidad</a></li>
-        <li><a class="link-secondary" href="#">Términos y Condiciones</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Compañía</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Sobre Nosotros</a></li>
-        <li><a class="link-secondary" href="#">Contacto</a></li>
-      </ul>
-    </div>
-  </div>
 </footer>
 
 <script src="./assets/js/bootstrap.bundle.min.js"></script>

@@ -67,3 +67,30 @@
     flex: 1;
   }
 }
+
+.font-bold {
+  font-weight: bold;
+  font-family: Montserrat-Bold,sans-serif !important
+}
+
+/*
+  Header seccion
+*/
+
+.header-page a:hover {
+  color:  #C70039 ;
+  text-decoration: underline;
+}
+
+
+/*
+  footer seccion
+*/
+
+.footer-page {
+  background: #dcdcdc;
+}
+
+.data-footer {
+  font-size: 20;
+}
