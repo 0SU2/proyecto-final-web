@@ -15,6 +15,11 @@ if(loginForm) {
     .then((response) => response.json())
     .then((res) => {
       console.log('response => ', res);
+      if(!res.succes) {
+        alert(res.message)
+        return;
+      }
+
     })
     .catch((err) => {
       console.log('error => ', err);
@@ -34,6 +39,10 @@ if(registrarForm) {
     .then((response) => response.json())
     .then((res) => {
       console.log('server res =>', res)
+      if(!res.succes) {
+        alert(res.message)
+        return;
+      }
       
     })
     .catch((err) => {

@@ -1,0 +1,66 @@
+/*
+  Header seccion
+*/
+
+.header-page a:hover {
+  color:  #C70039 ;
+  text-decoration: underline;
+}
+
+
+/*
+  footer seccion
+*/
+
+.footer-page {
+  background: #dcdcdc;
+}
+
+.data-footer {
+  font-size: 20;
+}
+    
+  
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.model-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.model-card img {
+  width: 100%;
+  height: auto;
+}
+
+.model-card .container {
+  padding: 16px;
+}
+
+.model-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.model-card h4, .model-card p {
+  margin: 0;
+}
+
+.btnReservar {
+  display: flex;
+  justify-content: center;
+}
