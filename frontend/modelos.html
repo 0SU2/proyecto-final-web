@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Modelos de Autos - AVIS">
@@ -55,6 +57,7 @@
     .btnReservar {
       display: flex;
       justify-content: center;
+      margin-bottom: 16px;
     }
   </style>
 
@@ -62,200 +65,211 @@
 <body>
   
 <header class="">
-<div class="container">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    <a href="./index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-      <!-- Ruta del logo -->
-      <img class="bi me-2" src="./assets/images/logo.jpg" alt="AVIS Logo" width="auto" height="40">
-      <span style="font-family: 'Poppins', sans-serif;" class="fs-4">AVIS</span>
-    </a>
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="./index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!-- Ruta del logo -->
+        <img class="bi me-2" src="./assets/images/logo.jpg" alt="AVIS Logo" width="auto" height="40">
+        <span style="font-family: 'Poppins', sans-serif;" class="fs-4">AVIS</span>
+      </a>
 
-    <ul class="nav col-md-4 text-end">
-      <li><a href="./index.html" class="nav-link px-2 link-dark">Home</a></li>
-      <li><a href="./login.html" class="nav-link px-2 link-dark">Perfil</a></li>
-      <li><a href="./modelos.html" class="nav-link px-2 link-dark">Modelos</a></li>
-      <li><a href="./nosotros.html" class="nav-link px-2 link-dark">Nosotros</a></li>
-    </ul>
-  </header>
-</div>
+      <ul class="nav col-md-4 text-end">
+        <li><a href="./index.html" class="nav-link px-2 link-dark">Home</a></li>
+        <li><a href="./login.html" class="nav-link px-2 link-dark">Perfil</a></li>
+        <li><a href="./modelos.html" class="nav-link px-2 link-dark">Modelos</a></li>
+        <li><a href="./nosotros.html" class="nav-link px-2 link-dark">Nosotros</a></li>
+      </ul>
+    </header>
+  </div>
 </header>
 
 <main>
-<div class="container my-5">
-  <h1 class="text-center">Nuestros Modelos</h1>
-  <p class="lead text-center">Descubre nuestra amplia gama de vehículos disponibles para ti.</p>
+  <div class="container my-5">
+    <h1 class="text-center">Nuestros Modelos</h1>
+    <p class="lead text-center">Descubre nuestra amplia gama de vehículos disponibles para ti.</p>
 
-
-  <div id="renta-autos">
-    <!-- Modelos de Autos -->
-    <h2 class="my-4">Autos</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="model-card">
-          <!-- Ruta de la imagen del auto -->
-          <div class="container">
-            <h4><b>Mazda 3 Sedan 2024</b></h4>
-            <img src="./assets/images/auto1.jpg" alt="Auto 1">
-            <p>Es un auto compacto que ofrece una sensación de calidad en todos los aspectos.</p>
+    <div id="renta-autos">
+      <!-- Modelos de Autos -->
+      <h2 class="my-4">Autos</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="model-card">
+            <!-- Ruta de la imagen del auto -->
+            <div class="container">
+              <h4><b>Mazda 3 Sedan 2024</b></h4>
+              <img src="./assets/images/auto1.jpg" alt="Auto 1">
+              <p>Es un auto compacto que ofrece una sensación de calidad en todos los aspectos.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('Mazda 3 Sedan 2024')">Reservar</button>
+            </div>
           </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
+        </div>
+        <div class="col-md-4">
+          <div class="model-card">
+            <div class="container">
+              <h4><b>Aveo Sedan 2024</b></h4>
+              <img src="./assets/images/auto2.jpg" alt="Auto 2">
+              <p>Este auto es una opción económica para quienes buscan un vehículo pequeño y de facil maniobridad.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('Aveo Sedan 2024')">Reservar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="model-card">
+            <div class="container">
+              <h4><b>Honda City 2024</b></h4>
+              <img src="./assets/images/auto3.jpg" alt="Auto 3">
+              <p>Este auto tiene un estilo elegante y ofrece gran eficiencia de combustible y confiabilidad.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('Honda City 2024')">Reservar</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="model-card">
-          <div class="container">
-            <h4><b>Aveo Sedan 2024</b></h4>
-            <img src="./assets/images/auto2.jpg" alt="Auto 2">
-            <p>Este auto es una opción económica para quienes buscan un vehículo pequeño y de facil maniobridad.</p>
+    </div>
+
+    <div id="renta-camionetas">
+      <!-- Modelos de Camionetas -->
+      <h2 class="my-4">Camionetas</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="model-card">
+            <!-- Ruta de la imagen de la camioneta -->
+            <div class="container">
+              <h4><b>MG ZS 2024</b></h4>
+              <img src="./assets/images/camioneta1.jpg" alt="Camioneta 1">
+              <p>Camioneta económica y cómoda.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('MG ZS 2024')">Reservar</button>
+            </div>
           </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
+        </div>
+        <div class="col-md-4">
+          <div class="model-card">
+            <div class="container">
+              <h4><b>Nissan Kick 2024</b></h4>
+              <img src="./assets/images/camioneta2.jpg" alt="Camioneta 2">
+              <p>Camioneta espaciosa y cómoda.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('Nissan Kick 2024')">Reservar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="model-card">
+            <div class="container">
+              <h4><b>Toyota Corolla Cross 2024</b></h4>
+              <img src="./assets/images/camioneta3.jpg" alt="Camioneta 3">
+              <p>Esta camioneta destaca por su gran seguridad, ya que cuenta con el alabado sistema Toyota Safety Sense 2.0, un conjunto de funcionalidades que hacen del manejo una experiencia más segura y confiable.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('Toyota Corolla Cross 2024')">Reservar</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="model-card">
-          <div class="container">
-            <h4><b>Honda City 2024</b></h4>
-            <img src="./assets/images/auto3.jpg" alt="Auto 3">
-            <p>Este auto tiene un estilo elegante y ofrece gran eficiencia de combustible y confiabilidad.</p>
+    </div>
+
+    <div id="autos-lujo">
+      <!-- Modelos de Coches de Lujo -->
+      <h2 class="my-4">Coches de Lujo</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="model-card">
+            <!-- Ruta de la imagen del coche de lujo -->
+            <div class="container">
+              <h4><b>Audi R8 2023</b></h4>
+              <img src="./assets/images/lujo1.jpg" alt="Coche de Lujo 1">
+              <p>Auto de lujo con motor v10 de 5.2 Litros y con tracción trasera, también tiene una transmisión de 7 velocidades.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('Audi R8 2023')">Reservar</button>
+            </div>
           </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
+        </div>
+        <div class="col-md-4">
+          <div class="model-card">
+            <div class="container">
+              <h4><b>BMW i8 2020</b></h4>
+              <img src="./assets/images/lujo2.jpg" alt="Coche de Lujo 2">
+              <p>Increíble auto con Turbo, 1.5 Litros y con transmisión de 6 velocidades automáticas con opción a un modo manual.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('BMW i8 2020')">Reservar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="model-card">
+            <div class="container">
+              <h4><b>Acura NSX 2017</b></h4>
+              <img src="./assets/images/lujo3.jpg" alt="Coche de Lujo 3">
+              <p>Fantástico auto con motor V6 de 2.7 Litros.</p>
+            </div>
+            <div class="btnReservar">
+              <button type="button" class="btn btn-primary" onclick="reservar('Acura NSX 2017')">Reservar</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div id="renta-camionetas">
-    <!-- Modelos de Camionetas -->
-    <h2 class="my-4">Camionetas</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="model-card">
-          <!-- Ruta de la imagen de la camioneta -->
-          <div class="container">
-            <h4><b>MG ZS 2024</b></h4>
-            <img src="./assets/images/camioneta1.jpg" alt="Camioneta 1">
-            <p>Camioneta economica y comoda.</p>
-          </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="model-card">
-          <div class="container">
-            <h4><b>Nissan Kick 2024</b></h4>
-            <img src="./assets/images/camioneta2.jpg" alt="Camioneta 2">
-            <p>Camioneta espaciosa y comoda.</p>
-          </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="model-card">
-          <div class="container">
-            <h4><b>Toyota Corolla Cross 2024</b></h4>
-            <img src="./assets/images/camioneta3.jpg" alt="Camioneta 3">
-            <p>Esta camioneta destaca por su gran seguridad, ya que cuenta con el alabado sistema Toyota Safety Sense 2.0, un conjunto de funcionalidades que hacen del manejo una experiencia más segura y confiable.</p>
-          </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="autos-lujo">
-    <!-- Modelos de Coches de Lujo -->
-    <h2 class="my-4">Coches de Lujo</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="model-card">
-          <!-- Ruta de la imagen del coche de lujo -->
-          <div class="container">
-            <h4><b>Audi R8 2023</b></h4>
-            <img src="./assets/images/lujo1.jpg" alt="Coche de Lujo 1">
-            <p>Auto de lujo con motor v10 de 5.2 Litros y con traccion trasera, tambien tiene una transmision de 7 velocidades.</p>
-          </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="model-card">
-          <div class="container">
-            <h4><b>BMW i8 2020</b></h4>
-            <img src="./assets/images/lujo2.jpg" alt="Coche de Lujo 2">
-            <p>Increible auto con Turbo, 1.5 Litros y con transmision de 6 velocidades automaticas con opcion a un modo mamual.</p>
-          </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="model-card">
-          <div class="container">
-            <h4><b>Acura NSX 2017</b></h4>
-            <img src="./assets/images/lujo3.jpg" alt="Coche de Lujo 3">
-            <p>Fantastico auto con motor V6 de 2.7 Litros.</p>
-          </div>
-          <div class="btnReservar">
-            <button type="button" class="btn btn-primary">Reservar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </main>
 
 <footer class="container py-5">
-<div class="row">
-  <div class="col-12 col-md">
-    <!-- Ruta del logo en el pie de página -->
-    <img src="./assets/images/logo.jpg" alt="AVIS Logo" width="24" height="24" class="d-block mb-2">
-    <small class="d-block mb-3 text-muted">© 2021–2024 AVIS</small>
+  <div class="row">
+    <div class="col-12 col-md">
+      <!-- Ruta del logo en el pie de página -->
+      <img src="./assets/images/logo.jpg" alt="AVIS Logo" width="24" height="24" class="d-block mb-2">
+      <small class="d-block mb-3 text-muted">© 2021–2024 AVIS</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Servicios</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a></li>
+        <li><a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a></li>
+        <li><a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Ayuda</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Guía de Renta</a></li>
+        <li><a class="link-secondary" href="#">Preguntas Frecuentes</a></li>
+        <li><a class="link-secondary" href="#">Política de Privacidad</a></li>
+        <li><a class="link-secondary" href="#">Términos y Condiciones</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Compañía</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Sobre Nosotros</a></li>
+        <li><a class="link-secondary" href="#">Contacto</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="col-6 col-md">
-    <h5>Servicios</h5>
-    <ul class="list-unstyled text-small">
-      <li><a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a></li>
-      <li><a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a></li>
-      <li><a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a></li>
-    </ul>
-  </div>
-  <div class="col-6 col-md">
-    <h5>Ayuda</h5>
-    <ul class="list-unstyled text-small">
-      <li><a class="link-secondary" href="#">Guía de Renta</a></li>
-      <li><a class="link-secondary" href="#">Preguntas Frecuentes</a></li>
-      <li><a class="link-secondary" href="#">Política de Privacidad</a></li>
-      <li><a class="link-secondary" href="#">Términos y Condiciones</a></li>
-    </ul>
-  </div>
-  <div class="col-6 col-md">
-    <h5>Compañía</h5>
-    <ul class="list-unstyled text-small">
-      <li><a class="link-secondary" href="#">Sobre Nosotros</a></li>
-      <li><a class="link-secondary" href="#">Contacto</a></li>
-    </ul>
-  </div>
-</div>
 </footer>
 
 <script src="./assets/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  // Simulación de estado de inicio de sesión
+  const isLoggedIn = false; // Cambiar a true si el usuario está logueado
 
+  function reservar(modelo) {
+    if (isLoggedIn) {
+      window.location.href = `./reservar.html?modelo=${encodeURIComponent(modelo)}`;
+    } else {
+      window.location.href = './login.html';
+    }
+  }
+</script>
 
-</body></html>
+</body>
+</html>
