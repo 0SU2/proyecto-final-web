@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reservar Auto - AVIS">
+  <meta name="author" content="AVIS">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Reservar Auto - AVIS</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  
+<header class="">
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="./index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img class="bi me-2" src="./assets/images/logo.jpg" alt="AVIS Logo" width="auto" height="40">
+        <span style="font-family: 'Poppins', sans-serif;" class="fs-4">AVIS</span>
+      </a>
+
+      <ul class="nav col-md-4 text-end">
+        <li><a href="./index.html" class="nav-link px-2 link-dark">Home</a></li>
+        <li><a href="./perfil.html" class="nav-link px-2 link-dark">Perfil</a></li>
+        <li><a href="./modelos.html" class="nav-link px-2 link-dark">Modelos</a></li>
+        <li><a href="./nosotros.html" class="nav-link px-2 link-dark">Nosotros</a></li>
+      </ul>
+    </header>
+  </div>
+</header>
+
+<main>
+  <div class="container my-5">
+    <h1 class="text-center">Reservar Auto</h1>
+    <p class="lead text-center">Complete la siguiente información para reservar su auto.</p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="reservationForm">
+          <div class="mb-3">
+            <label for="modelo" class="form-label">Modelo de Auto</label>
+            <input type="text" class="form-control" id="modelo" name="modelo" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha de Reserva</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
+          </div>
+          <div class="mb-3">
+            <label for="duracion" class="form-label">Duración de la Reserva (días)</label>
+            <input type="number" class="form-control" id="duracion" name="duracion" required>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Reservar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md">
+      <!-- Ruta del logo en el pie de página -->
+      <img src="./assets/images/logo.jpg" alt="AVIS Logo" width="24" height="24" class="d-block mb-2">
+      <small class="d-block mb-3 text-muted">© 2021–2024 AVIS</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Servicios</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a></li>
+        <li><a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a></li>
+        <li><a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Ayuda</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Guía de Renta</a></li>
+        <li><a class="link-secondary" href="#">Preguntas Frecuentes</a></li>
+        <li><a class="link-secondary" href="#">Política de Privacidad</a></li>
+        <li><a class="link-secondary" href="#">Términos y Condiciones</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Compañía</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Sobre Nosotros</a></li>
+        <li><a class="link-secondary" href="#">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Obtener los parámetros de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const modelo = urlParams.get('modelo');
+
+  // Establecer el valor del campo de modelo
+  document.getElementById('modelo').value = modelo;
+
+  // Manejar el envío del formulario
+  document.getElementById('reservationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('¡Reserva realizada con éxito para el ' + modelo + '!');
+    // Aquí puedes agregar el código para enviar los datos a tu servidor
+  });
+</script>
+
+</body>
+</html>
