@@ -17,6 +17,14 @@
         $idUser = $_POST['id'];
         $userController->getAllUserPedidos($idUser);
       }
+      if($accion == 'entregarCarro') {
+        $idPedido = $_POST['id'];
+        $userController->entregarCarro($idPedido);
+      }
+      if($accion == 'usuarioDatos') {
+        $idUser = $_POST['id'];
+        $userController->obtenerUsuarioData($idUser);
+      }
       break;
 
   }

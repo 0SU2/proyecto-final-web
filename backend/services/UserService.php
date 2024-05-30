@@ -66,6 +66,24 @@
 			}
       return $data;
     }
+
+    public function entregarCarroUsuario($id_pedido)
+    {
+      $sql_query = "UPDATE pedidos SET estatus = 'entregado' WHERE id_pedido = $id_pedido";
+
+      if($this->db->query($sql_query) == TRUE) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function datosCompletosUsuario($idUsuario)
+    {
+      $sql_query = "SELECT usuario FROM `usuarios` WHERE id = $idUsuario";
+      $result = $this->db->query($sql_query);
+      return $result->fetch_assoc();
+    }
     
   }
 

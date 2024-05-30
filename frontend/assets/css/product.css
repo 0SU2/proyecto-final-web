@@ -73,6 +73,10 @@
   font-family: Montserrat-Bold,sans-serif !important
 }
 
+.active-header {
+  color: #C70039 ;
+}
+
 /*
   Header seccion
 */

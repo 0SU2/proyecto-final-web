@@ -54,6 +54,20 @@
 			echo json_encode(array('success' => true, 'result' => $data));
 		}
 
+		public function entregarCarro($id_pedido) {
+			$response = $this->userService->entregarCarroUsuario($id_pedido);
+			if($response) {
+				echo json_encode(array('success' =>  true, 'message' => 'Informacion actualizada!'));
+			} else {
+				echo json_encode(array("succes" => false, 'message' => 'Error'));
+			}
+		}
+
+		public function obtenerUsuarioData($userId) {
+			$response = $this->userService->datosCompletosUsuario($userId);
+			echo json_encode(array('success' => true, 'result' => $response));
+		}
+
   }
 
 ?>
