@@ -8,6 +8,26 @@ const idForm = document.getElementById('idForm');
 let accion = document.getElementById('accion');
 let pedidosId = document.getElementById('id');
 
+document.getElementById('perfil').addEventListener('click', () => {
+    // leer un parametro
+    const params = new URLSearchParams(window.location.search);
+    const userId =  params.get('id');
+    if(userId) {
+      window.location.href = `../frontend/user.html?id=${userId}`;
+      return;
+    }
+})
+
+document.getElementById('reservar').addEventListener('click', () => {
+    // leer un parametro
+    const params = new URLSearchParams(window.location.search);
+    const userId =  params.get('id');
+    if(userId) {
+      window.location.href = `../frontend/reservar.html?id=${userId}`;
+      return;
+    }
+})
+
 document.addEventListener('DOMContentLoaded', () => {
   headerSelected.classList.add('active-header');
     // leer un parametro

@@ -45,9 +45,10 @@
         <span style="font-family: 'Poppins', sans-serif;" class="fs-4">AVIS</span>
       </a>
 
-      <ul class="nav col-md-4 text-end">
+      <ul class="nav col-md-5 text-end">
         <li><a href="./index.html" id="home" class="nav-link px-2 link-dark">Home</a></li>
-        <li><a href="./login.html" id="perfil" class="nav-link px-2 link-dark">Perfil</a></li>
+        <li><a id="reservar" class="nav-link px-2 link-dark">Reserva!</a></li>
+        <li><a id="perfil" class="nav-link px-2 link-dark">Perfil</a></li>
         <li><a href="./modelos.html" id="modelos" class="nav-link px-2 link-dark">Modelos</a></li>
         <li><a href="./nosotros.html" id="nosotros" class="nav-link px-2 link-dark">Nosotros</a></li>
       </ul>
@@ -150,21 +151,7 @@
     </div>
 </footer>
 
-<script>
-  // Obtener los parámetros de la URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const modelo = urlParams.get('modelo');
-
-  // Establecer el valor del campo de modelo
-  document.getElementById('modelo').value = modelo;
-
-  // Manejar el envío del formulario
-  document.getElementById('reservationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('¡Reserva realizada con éxito para el ' + modelo + '!');
-    // Aquí puedes agregar el código para enviar los datos a tu servidor
-  });
-</script>
+<script src="./assets/js/reservar.js"></script>
 
 </body>
 </html>
