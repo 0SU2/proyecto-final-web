@@ -6,6 +6,7 @@
     public function getPedidosUser($userId);
     public function entregarCarroUsuario($id_pedido);
     public function datosCompletosUsuario($idUsuario);
+    public function getModelosDisponibles($idModelos);
   }
 
 ?>

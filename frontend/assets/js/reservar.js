@@ -23,5 +23,31 @@
   document.getElementById('reservationForm').addEventListener('submit', function(event) {
     event.preventDefault();
     alert('¡Reserva realizada con éxito para el ' + modelo + '!');
-    // Aquí puedes agregar el código para enviar los datos a tu servidor
+    // Datos del formulario
+    const formData = new FormData(this);
+    formData.append('accion', 'reservar');
+    formData.append('modelo', modelo);
+
+    // Opciones de la petición
+    const options = {
+        method: 'POST',
+        body: formData
+    };
+
+    // Enviar los datos al servidor
+    fetch('../backend/index.php', options)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('¡Reserva realizada con éxito para el ' + modelo + '!');
+                // Redirigir a una página de confirmación o similar
+                window.location.href = `../frontend/confirmacion.html?id=${data.result}`;
+            } else {
+                alert('Error al realizar la reserva: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un problema con la solicitud. Por favor, inténtelo de nuevo más tarde.');
+        });
   });
