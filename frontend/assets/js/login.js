@@ -14,10 +14,12 @@ if(loginForm) {
     })
     .then((response) => response.json())
     .then((res) => {
-      if(!res.succes) {
+      if(res.success) {
+        alert(res.message)
+        window.location.href = `../frontend/user.html?id=${res.result}`
+        return;
+      } else {
         alert(res.message);
-        window.location.href = `../frontend/user.html?id=1`
-
         return;
       }
 
@@ -39,12 +41,13 @@ if(registrarForm) {
     })
     .then((response) => response.json())
     .then((res) => {
-      if(!res.message) {
+      if(res.success) {
         alert(res.message)
-        window.location.href = `../frontend/user.html?id=1`
+        window.location.href = `../frontend/user.html?id=${res.result}`
         return;
-      }
-      if(res.succes) {
+      } else {
+        alert(res.message);
+        return;
       }
     })
     .catch((err) => {

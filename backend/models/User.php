@@ -18,6 +18,10 @@
       $this->password = $password;
     }
 
+    public function getId() {
+      return $this->id;
+    }
+
     public function getCorreo() {
       return $this->correo;
     }

@@ -18,8 +18,7 @@
 				if(!empty($usuario) && !empty($password)) {
 					$user = $this->userService->login($usuario, $password);
 					if($user) {
-						session_start();
-						echo json_encode(array("success" => true, "message" => "Inicio Satisfactorio", 'result' => session_id()));
+						echo json_encode(array("success" => true, "message" => "Inicio Satisfactorio", 'result' => $user['id']));
 					} else {
 						echo json_encode(array("success" => false, "message" => "Credenciales Incorrectas"));
 					}
@@ -43,10 +42,16 @@
 			
 			$resultado = $this->userService->registrarUsuario($usuarioNuevo);
 			if($resultado) {
-				echo json_encode(array('success' => true, 'message' => 'Registro Exitoso'));
+				$userId = $this->userService->getUserId($usuario, $password);
+				echo json_encode(array('success' => true, 'message' => 'Registro Exitoso', 'result' => $userId));
 			} else {
 				echo json_encode(array('success' => false, 'message' => 'Error al registar'));
 			}
+		}
+
+		public function getAllUserPedidos($userId) {
+			$data = $this->userService->getPedidosUser($userId);
+			echo json_encode(array('success' => true, 'result' => $data));
 		}
 
   }
