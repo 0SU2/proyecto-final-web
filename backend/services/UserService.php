@@ -81,18 +81,18 @@ class UserService implements UserInterface {
     }
 
     // Nueva función para obtener los modelos disponibles
-    public function getModelosDisponibles($idModelos) {
-        $sql_query = "SELECT * FROM carros WHERE id_carro=$idModelos";
+    public function getModelosDisponibles() {
+        $sql_query = "SELECT modelo FROM autos";
         
         $result = $this->db->query($sql_query);
-        $data = array();
+        $modelos = array();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $data[] = $row;
+                $modelos[] = $row['modelo'];
             }
         }
-        return $data;
+        return $modelos;
     }
 }
 ?>

@@ -68,6 +68,11 @@
 			echo json_encode(array('success' => true, 'result' => $response));
 		}
 
+        public function getModelos() {
+            $modelos = $this->userService->getModelosDisponibles();
+            echo json_encode(array('success' => true, 'modelos' => $modelos));
+        }
+
   }
 
 ?>

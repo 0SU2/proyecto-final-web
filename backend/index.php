@@ -26,7 +26,12 @@
         $userController->obtenerUsuarioData($idUser);
       }
       break;
-
+    
+    case 'GET':
+      if ($_GET['accion'] == 'getModelos') {
+          $userController->getModelos();
+      }
+      break;
   }
 
 ?>
