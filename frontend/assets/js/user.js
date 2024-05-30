@@ -64,7 +64,7 @@ const cargarDatosUsuario = (data) => {
     clone.querySelectorAll('td')[2].textContent = data.dia_alquilacion;
     clone.querySelectorAll('td')[3].textContent = '$' + data.costo_total;
     clone.querySelectorAll('td')[4].textContent = data.estatus;
-    clone.querySelector('.btn').dataset.id = data.id_carro;
+    clone.querySelector('.btn').dataset.id = data.id_pedido;
 
     if(data.estatus.includes('en proceso')) {
       clone.querySelector('.btn').classList.add('btn-success');
