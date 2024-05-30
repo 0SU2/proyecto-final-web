@@ -42,6 +42,48 @@
 			}
 			return false;
 		}
+
+    public function getUserId($usuario, $password) {
+			$sql_usuario = "SELECT * FROM usuarios WHERE usuario= '$usuario'";
+      $result = $this->db->query($sql_usuario);
+      if($result->num_rows == 1) {
+        $user = $result->fetch_assoc(); // nos regresa la informacion del usuario que encontro en la base de datos
+        if(password_verify($password, $user['password'])) {
+          return $user['id'];
+        }
+      }
+    }
+
+    public function getPedidosUser($userId) {
+      $sql_query = "SELECT * FROM pedidos WHERE id_usuario='$userId' ";
+      $result = $this->db->query($sql_query);
+			$data = array();
+
+			if ($result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					$data[] = $row;
+				}
+			}
+      return $data;
+    }
+
+    public function entregarCarroUsuario($id_pedido)
+    {
+      $sql_query = "UPDATE pedidos SET estatus = 'entregado' WHERE id_pedido = $id_pedido";
+
+      if($this->db->query($sql_query) == TRUE) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public function datosCompletosUsuario($idUsuario)
+    {
+      $sql_query = "SELECT usuario FROM `usuarios` WHERE id = $idUsuario";
+      $result = $this->db->query($sql_query);
+      return $result->fetch_assoc();
+    }
     
   }
 

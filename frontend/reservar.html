@@ -1,26 +1,41 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AVIS - Renta de Carros">
-    <meta name="author" content="AVIS">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>AVIS - Renta de Carros</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reservar Auto - AVIS">
+  <meta name="author" content="AVIS">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Reservar Auto - AVIS</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/product.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="./assets/css/product.css" rel="stylesheet">
-  </head>
-  <body>
-    
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  
 <header class="header-page">
   <div class="container ">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -30,9 +45,10 @@
         <span style="font-family: 'Poppins', sans-serif;" class="fs-4">AVIS</span>
       </a>
 
-      <ul class="nav col-md-4 text-end">
+      <ul class="nav col-md-5 text-end">
         <li><a href="./index.html" id="home" class="nav-link px-2 link-dark">Home</a></li>
-        <li><a href="./login.html" id="perfil" class="nav-link px-2 link-dark">Perfil</a></li>
+        <li><a id="reservar" class="nav-link px-2 link-dark">Reserva!</a></li>
+        <li><a id="perfil" class="nav-link px-2 link-dark">Perfil</a></li>
         <li><a href="./modelos.html" id="modelos" class="nav-link px-2 link-dark">Modelos</a></li>
         <li><a href="./nosotros.html" id="nosotros" class="nav-link px-2 link-dark">Nosotros</a></li>
       </ul>
@@ -41,51 +57,36 @@
 </header>
 
 <main>
-  <div class="position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-2 mx-auto my-3">
-      <h1 class="display-4 fw-normal">Bienvenido a AVIS</h1>
-      <p class="lead fw-normal">La mejor experiencia de renta de autos. Encuentra el vehículo perfecto para tu viaje.</p>
-      <a class="btn btn-outline-secondary" href="#">Reserva ahora</a>
-    </div>
-    <!-- Ruta de la imagen principal -->
-    <div class="d-none d-md-block" style="background-image: url('./assets/images/car-png-16829.png'); background-size: cover; height: 300px;"></div>
-  </div>
+  <div class="container my-5">
+    <h1 class="text-center">Reservar Auto</h1>
+    <p class="lead text-center">Complete la siguiente información para reservar su auto.</p>
 
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Modelos Destacados</h2>
-        <p class="lead">Explora nuestros vehículos más populares.</p>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="reservationForm">
+          <div class="mb-3">
+            <label for="modelo" class="form-label">Modelo de Auto</label>
+            <input type="text" class="form-control" id="modelo" name="modelo" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha de Reserva</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
+          </div>
+          <div class="mb-3">
+            <label for="duracion" class="form-label">Duración de la Reserva (días)</label>
+            <input type="number" class="form-control" id="duracion" name="duracion" required>
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Reservar</button>
+        </form>
       </div>
-      <!-- Ruta de la imagen para modelos destacados -->
-      <div class="bg-light shadow-sm mx-auto" style="background-image: url('./assets/images/modelos_destacados.jpg'); background-size: cover; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Ofertas Especiales</h2>
-        <p class="lead">Aprovecha nuestras promociones y descuentos.</p>
-      </div>
-      <!-- Ruta de la imagen para ofertas especiales -->
-      <div class="bg-dark shadow-sm mx-auto" style="background-image: url('./assets/images/ofertas_especiales.png'); background-size: cover; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Nuestras Ubicaciones</h2>
-        <p class="lead">Encuentra una sucursal cerca de ti.</p>
-      </div>
-      <!-- Ruta de la imagen para nuestras ubicaciones -->
-      <div class="bg-body shadow-sm mx-auto" style="background-image: url('./assets/images/nuentras_ubicaciones.jpg'); background-size: cover; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Servicio al Cliente</h2>
-        <p class="lead">Estamos aquí para ayudarte. Contáctanos para más información.</p>
-      </div>
-      <!-- Ruta de la imagen para servicio al cliente -->
-      <div class="bg-light shadow-sm mx-auto" style="background-image: url('./assets/images/servicio_al_cliente.png'); background-size: cover; width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
   </div>
 </main>
@@ -150,8 +151,7 @@
     </div>
 </footer>
 
-<script src="./assets/js/bootstrap.bundle.min.js"></script>
-<script src="./assets/js/app.js"></script>
+<script src="./assets/js/reservar.js"></script>
 
 </body>
 </html>
