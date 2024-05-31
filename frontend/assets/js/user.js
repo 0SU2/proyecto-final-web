@@ -29,33 +29,38 @@ document.getElementById('reservar').addEventListener('click', () => {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
-  headerSelected.classList.add('active-header');
+  
+headerSelected.classList.add('active-header');
     // leer un parametro
     const params = new URLSearchParams(window.location.search);
     const userId =  params.get('id');
+    
     if(userId) {
-        console.log(' id => ', userId);
-        obtenerDatosUsuario(userId);
-        loadData(userId)
+
+      // aqui se obtiene el nombre del usuario registrado
+      pedidosId.value = userId;
+      accion.value = 'usuarioDatos';
+      const form = new FormData(idForm);
+      fetch('../backend/index.php', {
+        method: 'POST',
+        body: form,
+      })
+      .then(response => response.json())
+      .then((res) => {
+        titleUser.innerHTML = res.result.usuario;
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+      console.log(' id => ', userId);
+
+      // ya que obtuvimos su id y su usuario, cargamos
+      // todos los datos de sus reservaciones
+      loadData(userId)
     }
 })
 
-const obtenerDatosUsuario = (userId) => {
-  pedidosId.value = userId;
-  accion.value = 'usuarioDatos';
-  const form = new FormData(idForm);
-  fetch('../backend/index.php', {
-    method: 'POST',
-    body: form,
-  })
-  .then(response => response.json())
-  .then((res) => {
-    titleUser.innerHTML = res.result.usuario;
-  })
-  .catch(err => {
-    console.log(err);
-  })
-}
 
 const loadData = (userId) => {
   // obtener los datos de sus ordenes
