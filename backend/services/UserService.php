@@ -96,7 +96,7 @@ class UserService implements UserInterface {
     }
 
     public function reservarAuto($id_usuario, $id_carro, $dia_alquilacion, $costo_total, $estatus, $modelo) {
-        $sql_query = "INSERT INTO pedidos (id_usuario, id_carro, dia_alquilacion, costo_total, estatus, modelo) VALUES ('$id_usuario', '$id_carro', '$dia_alquilacion', '$costo_total', '$estatus', '$modelo')";
+        $sql_query = "INSERT INTO pedidos (id_usuario, id_carro, dia_alquilacion, costo_total, estatus, modelo) VALUES ('$id_usuario', '$id_carro', '$dia_alquilacion', $costo_total, '$estatus', '$modelo')";
         if ($this->db->query($sql_query) === TRUE) {
             return true;
         } else {

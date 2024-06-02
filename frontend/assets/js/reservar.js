@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const formData = new FormData(this);
       formData.append('accion', 'reservar');
+      console.log(formData);
       fetch('../backend/index.php', {
           method: 'POST',
           body: formData
@@ -48,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
               const option = document.createElement('option');
               option.value = modelo.id;
               option.setAttribute('data-precio', modelo.precio); // Añade el precio como atributo de datos
-              option.textContent = `${modelo.modelo} - ${modelo.categoria} - ${modelo.precio} - ${modelo.descripcion}`;
+              option.setAttribute('nombre-modelo', modelo.modelo); // añade el nombre del modelo como atributo de datos
+              option.textContent = `${modelo.modelo} - ${modelo.categoria}`;
               modeloSelect.appendChild(option);
           });
       } else {
@@ -69,6 +71,10 @@ function calculateCostoTotal() {
   const selectedOption = modeloSelect.options[modeloSelect.selectedIndex];
   const precioBase = parseFloat(selectedOption.getAttribute('data-precio'));
   const duracion = parseInt(document.getElementById('duracion').value);
+  
+  // obtener el nombre del modelo para asignarlo y mandarlo a la base de datos
+  const nombreModelo = selectedOption.getAttribute('nombre-modelo');
+  document.getElementById('modelo-nombre-completo').value = nombreModelo;
 
   if (!isNaN(precioBase) && !isNaN(duracion)) {
       const costoTotal = precioBase + ((duracion - 1) * 100); // Precio base + 100 por cada día adicional

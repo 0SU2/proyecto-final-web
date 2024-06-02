@@ -86,7 +86,7 @@ const cargarDatosUsuario = (data) => {
     clone.querySelectorAll('td')[4].textContent = data.estatus;
     clone.querySelector('.btn').dataset.id = data.id_pedido;
 
-    if(data.estatus.includes('en proceso')) {
+    if(data.estatus.includes('reservado')) {
       clone.querySelector('.btn').classList.add('btn-success');
       clone.querySelectorAll('td')[4].classList.add('text-warning');
       const btnActualizar = clone.querySelector('.btn');
