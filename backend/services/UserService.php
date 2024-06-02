@@ -82,7 +82,7 @@ class UserService implements UserInterface {
 
     // Nueva función para obtener los modelos disponibles
     public function getModelosDisponibles() {
-        $sql_query = "SELECT modelo FROM autos";
+        $sql_query = "SELECT modelo FROM carros WHERE cantidad > 0";
         
         $result = $this->db->query($sql_query);
         $modelos = array();
