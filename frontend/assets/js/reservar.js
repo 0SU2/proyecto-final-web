@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const userId = urlParams.get('id');
 
   if (userId) {
-    document.getElementById('userId').value = userId;
+      document.getElementById('userId').value = userId;
   } else {
-    console.error('Error: No se pudo obtener el userId de la URL');
+      console.error('Error: No se pudo obtener el userId de la URL');
   }
 
   document.getElementById('reservar').classList.add('active-header');
@@ -16,10 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById('reservationForm').addEventListener('submit', function(event) {
       event.preventDefault();
-
+      
       const formData = new FormData(this);
       formData.append('accion', 'reservar');
-      
       fetch('../backend/index.php', {
           method: 'POST',
           body: formData
@@ -40,22 +39,41 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   fetch('../backend/index.php?accion=getModelos')
-    .then(response => response.json())
-    .then(data => {
+  .then(response => response.json())
+  .then(data => {
       if (data.success) {
-        const modeloSelect = document.getElementById('modelo');
-        modeloSelect.innerHTML = '';
-        data.modelos.forEach(modelo => {
-          const option = document.createElement('option');
-          option.value = modelo.id;
-          option.textContent = `${modelo.modelo} - ${modelo.categoria} - ${modelo.precio} - ${modelo.descripcion}`;
-          modeloSelect.appendChild(option);
-        });
+          const modeloSelect = document.getElementById('modelo');
+          modeloSelect.innerHTML = '';
+          data.modelos.forEach(modelo => {
+              const option = document.createElement('option');
+              option.value = modelo.id;
+              option.setAttribute('data-precio', modelo.precio); // Añade el precio como atributo de datos
+              option.textContent = `${modelo.modelo} - ${modelo.categoria} - ${modelo.precio} - ${modelo.descripcion}`;
+              modeloSelect.appendChild(option);
+          });
       } else {
-        console.error('Error al obtener los modelos:', data.message);
+          console.error('Error al obtener los modelos:', data.message);
       }
-    })
-    .catch(error => {
+  })
+  .catch(error => {
       console.error('Error:', error);
-    });
+  });
+
+  // Calcula el costo total en función de la duración y el precio del modelo
+  document.getElementById('duracion').addEventListener('input', calculateCostoTotal);
+  document.getElementById('modelo').addEventListener('change', calculateCostoTotal);
 });
+
+function calculateCostoTotal() {
+  const modeloSelect = document.getElementById('modelo');
+  const selectedOption = modeloSelect.options[modeloSelect.selectedIndex];
+  const precioBase = parseFloat(selectedOption.getAttribute('data-precio'));
+  const duracion = parseInt(document.getElementById('duracion').value);
+
+  if (!isNaN(precioBase) && !isNaN(duracion)) {
+      const costoTotal = precioBase + ((duracion - 1) * 100); // Precio base + 100 por cada día adicional
+      document.getElementById('costo_total').value = costoTotal;
+  } else {
+      document.getElementById('costo_total').value = '';
+  }
+}
