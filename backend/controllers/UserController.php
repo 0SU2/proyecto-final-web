@@ -73,6 +73,20 @@
             echo json_encode(array('success' => true, 'modelos' => $modelos));
         }
 
+		public function reservar() {
+			$userId = $_POST['userId'];
+			$modeloId = $_POST['modelo'];
+			$fecha = $_POST['fecha'];
+			$duracion = $_POST['duracion'];
+		
+			$result = $this->userService->reservarAuto($userId, $modeloId, $fecha, $duracion);
+			if ($result) {
+			  echo json_encode(array('success' => true, 'message' => 'Reserva realizada con éxito'));
+			} else {
+			  echo json_encode(array('success' => false, 'message' => 'Error al realizar la reserva'));
+			}
+		  }
+
   }
 
 ?>

@@ -64,6 +64,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <form id="reservationForm">
+          <input type="hidden" id="userId" name="userId" value="">
           <div class="mb-3">
             <label for="modelo" class="form-label">Modelo de Auto</label>
             <select class="form-control" id="modelo" name="modelo" required></select>
@@ -76,14 +77,6 @@
             <label for="duracion" class="form-label">Duración de la Reserva (días)</label>
             <input type="number" class="form-control" id="duracion" name="duracion" required>
           </div>
-          <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre Completo</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
           <button type="submit" class="btn btn-primary">Reservar</button>
         </form>
       </div>
@@ -92,63 +85,58 @@
 </main>
 
 <footer class="footer-page">
-    <div class="container container-responsive py-5">
-      <div class="row">
-        <div class="col-sm-12 col-lg d-flex justify-content-center justify-content-lg-start my-3 my-lg-0">
-          <a class="navbar-brand me-0" href="index.html" accesskey="a">
-            <img alt="avis méxico logo" class="img-fluid d-block me-0 animation fade-in" width="90" height="31" src="https://avis.mx/images/logos/avis-logo-dark.webp" style="animation-duration: 500ms;">
-          </a>
-        </div>
+  <div class="container container-responsive py-5">
+    <div class="row">
+      <div class="col-sm-12 col-lg d-flex justify-content-center justify-content-lg-start my-3 my-lg-0">
+        <a class="navbar-brand me-0" href="index.html" accesskey="a">
+          <img alt="avis méxico logo" class="img-fluid d-block me-0 animation fade-in" width="90" height="31" src="https://avis.mx/images/logos/avis-logo-dark.webp" style="animation-duration: 500ms;">
+        </a>
       </div>
-        <hr class="my-4">
-        <div class="row d-flex justify-content-between">
-
-          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Servicios</h5>
-            <ul class="list-unstyled mb-0">
-              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a>
-              </li>
-              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a>
-              </li>
-              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Ayuda</h5>
-
-            <ul class="list-unstyled mb-0">
-              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
-              </li>
-              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="./privacidad.html" class="link-secondary" accesskey="g">Política de Privacidad</a>
-              </li>
-              <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="" class="link-secondary" accesskey="h">Términos y Condiciones</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Compañía</h5>
-            <ul class="list-unstyled mb-0">
-              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="#">Sobre Nosotros</a>
-              </li>
-              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="#">Contacto</a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-        <hr class="my-4">
     </div>
+    <hr class="my-4">
+    <div class="row d-flex justify-content-between">
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Servicios</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a>
+          </li>
+          <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a>
+          </li>
+          <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Ayuda</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a href="" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
+          </li>
+          <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a href="./privacidad.html" class="link-secondary" accesskey="g">Política de Privacidad</a>
+          </li>
+          <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a href="" class="link-secondary" accesskey="h">Términos y Condiciones</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+        <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Compañía</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="#">Sobre Nosotros</a>
+          </li>
+          <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-4">
+  </div>
 </footer>
 
 <script src="./assets/js/reservar.js"></script>

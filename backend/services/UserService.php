@@ -94,5 +94,14 @@ class UserService implements UserInterface {
         }
         return $modelos;
     }
+
+    public function reservarAuto($userId, $modeloId, $fecha, $duracion) {
+        $sql_query = "INSERT INTO reservas (user_id, modelo_id, fecha, duracion) VALUES ('$userId', '$modeloId', '$fecha', '$duracion')";
+        if ($this->db->query($sql_query) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 ?>

@@ -1,37 +1,32 @@
-
 <?php
-  require_once '../backend/controllers/UserController.php';
+require_once '../backend/controllers/UserController.php';
 
-  $userController = new UserController();
+$userController = new UserController();
 
-  switch ($_SERVER["REQUEST_METHOD"]) {
-    case 'POST':
-      $accion = $_POST['accion'];
-      if($accion == 'registrar') {
-        $userController->registrar();
-      }
-      if($accion == 'login') {
-        $userController->login();
-      }
-      if($accion == 'todosLosPedidos') {
-        $idUser = $_POST['id'];
-        $userController->getAllUserPedidos($idUser);
-      }
-      if($accion == 'entregarCarro') {
-        $idPedido = $_POST['id'];
-        $userController->entregarCarro($idPedido);
-      }
-      if($accion == 'usuarioDatos') {
-        $idUser = $_POST['id'];
-        $userController->obtenerUsuarioData($idUser);
-      }
-      break;
-    
-    case 'GET':
-      if ($_GET['accion'] == 'getModelos') {
-          $userController->getModelos();
-      }
-      break;
-  }
-
+switch ($_SERVER["REQUEST_METHOD"]) {
+  case 'POST':
+    $accion = $_POST['accion'];
+    if ($accion == 'registrar') {
+      $userController->registrar();
+    } elseif ($accion == 'login') {
+      $userController->login();
+    } elseif ($accion == 'todosLosPedidos') {
+      $idUser = $_POST['id'];
+      $userController->getAllUserPedidos($idUser);
+    } elseif ($accion == 'entregarCarro') {
+      $idPedido = $_POST['id'];
+      $userController->entregarCarro($idPedido);
+    } elseif ($accion == 'usuarioDatos') {
+      $idUser = $_POST['id'];
+      $userController->obtenerUsuarioData($idUser);
+    } elseif ($accion == 'reservar') {
+      $userController->reservar();
+    }
+    break;
+  case 'GET':
+    if (isset($_GET['accion']) && $_GET['accion'] == 'getModelos') {
+      $userController->getModelos();
+    }
+    break;
+}
 ?>
