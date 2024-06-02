@@ -1,41 +1,26 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Reservar Auto - AVIS">
-  <meta name="author" content="AVIS">
-  <meta name="generator" content="Hugo 0.84.0">
-  <title>Reservar Auto - AVIS</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AVIS - Renta de Carros">
+    <meta name="author" content="AVIS">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>AVIS - Preguntas Frecuentes</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Bootstrap core CSS -->
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Custom styles for this template -->
-  <link href="./assets/css/product.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-
-</head>
-<body>
-  
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/product.css" rel="stylesheet">
+  </head>
+  <body>
+    
 <header class="header-page">
   <div class="container ">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -56,35 +41,62 @@
 </header>
 
 <main>
-  <div class="container my-5">
-    <h1 class="text-center">Reservar Auto</h1>
-    <p class="lead text-center">Complete la siguiente información para reservar su auto.</p>
+  <div id="privacidad" class="position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-2 mx-auto my-3">
+      <h1 class="display-4 fw-normal">AVIS</h1>
+      <p class="lead fw-normal">Preguntas Frecuentes</p>
+    </div>
+  </div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form id="reservationForm">
-          <div class="mb-3">
-            <label for="modelo" class="form-label">Modelo de Auto</label>
-            <input type="text" class="form-control" id="modelo" name="modelo" readonly>
+  <div class="container">
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+            ¿Qué necesito para alquilar un coche?
+          </button>
+        </h2>
+        <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Necesitarás dinero y estar registrados con nosotros.
           </div>
-          <div class="mb-3">
-            <label for="fecha" class="form-label">Fecha de Reserva</label>
-            <input type="date" class="form-control" id="fecha" name="fecha" required>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+            ¿Puedo alquilar un coche si tengo menos de 25 años?
+          </button>
+        </h2>
+        <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Sí, puedes alquilar un coche si tienes entre 21 y 24 años ya que la edad mínima para alquilar un coche es de 21 años.
           </div>
-          <div class="mb-3">
-            <label for="duracion" class="form-label">Duración de la Reserva (días)</label>
-            <input type="number" class="form-control" id="duracion" name="duracion" required>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+            ¿Puedo devolver el coche en dias posteriores a la fecha acordada?
+          </button>
+        </h2>
+        <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Sí, puedes devolver el coche en una fecha diferente, pero se puede aplicar un cargo adicional.
           </div>
-          <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre Completo</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+            ¿Qué debo hacer si tengo un accidente con el coche alquilado?
+          </button>
+        </h2>
+        <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            En caso de accidente, primero asegúrate de que todos estén a salvo y llama a los servicios de emergencia si es necesario. Luego, contacta a nuestra línea de atención al cliente para informar sobre el incidente y recibir instrucciones adicionales.
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Reservar</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
@@ -125,7 +137,7 @@
                 <a href="./preguntas.html" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
               </li>
               <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="./privacidad.html" class="link-secondary" accesskey="g">Política de Privacidad</a>
+                <a href="privacidad.html#privacidad" class="link-secondary" accesskey="g">Política de Privacidad</a>
               </li>
               <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
                 <a href="./Tyc.html" class="link-secondary" accesskey="h">Términos y Condiciones</a>
@@ -150,21 +162,7 @@
     </div>
 </footer>
 
-<script>
-  // Obtener los parámetros de la URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const modelo = urlParams.get('modelo');
-
-  // Establecer el valor del campo de modelo
-  document.getElementById('modelo').value = modelo;
-
-  // Manejar el envío del formulario
-  document.getElementById('reservationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('¡Reserva realizada con éxito para el ' + modelo + '!');
-    // Aquí puedes agregar el código para enviar los datos a tu servidor
-  });
-</script>
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

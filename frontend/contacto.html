@@ -1,41 +1,26 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Reservar Auto - AVIS">
-  <meta name="author" content="AVIS">
-  <meta name="generator" content="Hugo 0.84.0">
-  <title>Reservar Auto - AVIS</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AVIS - Renta de Carros">
+    <meta name="author" content="AVIS">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>AVIS - Contacto</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Bootstrap core CSS -->
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Custom styles for this template -->
-  <link href="./assets/css/product.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-
-</head>
-<body>
-  
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/product.css" rel="stylesheet">
+  </head>
+  <body>
+    
 <header class="header-page">
   <div class="container ">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -56,36 +41,26 @@
 </header>
 
 <main>
-  <div class="container my-5">
-    <h1 class="text-center">Reservar Auto</h1>
-    <p class="lead text-center">Complete la siguiente información para reservar su auto.</p>
+  <div id="privacidad" class="position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-2 mx-auto my-3">
+      <h1 class="display-4 fw-normal">AVIS</h1>
+      <p class="lead fw-normal">Contacto</p>
+    </div>
+  </div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form id="reservationForm">
-          <div class="mb-3">
-            <label for="modelo" class="form-label">Modelo de Auto</label>
-            <input type="text" class="form-control" id="modelo" name="modelo" readonly>
-          </div>
-          <div class="mb-3">
-            <label for="fecha" class="form-label">Fecha de Reserva</label>
-            <input type="date" class="form-control" id="fecha" name="fecha" required>
-          </div>
-          <div class="mb-3">
-            <label for="duracion" class="form-label">Duración de la Reserva (días)</label>
-            <input type="number" class="form-control" id="duracion" name="duracion" required>
-          </div>
-          <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre Completo</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Reservar</button>
-        </form>
-      </div>
+  <div class="position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-2 mx-auto my-3">
+        <div class="col-md-5 p-lg-2 mx-auto my-3">
+            <h1 class="display-4 fw-normal">Correo</h1>
+            <p class="lead fw-normal">Avis@gmail.com</p>
+        </div>
+        <div class="col-md-5 p-lg-2 mx-auto my-3">
+            <h1 class="display-4 fw-normal">Telefono</h1>
+            <p class="lead fw-normal">4641672472</p>
+        </div>
+    </div>
+  </div>
+
     </div>
   </div>
 </main>
@@ -125,7 +100,7 @@
                 <a href="./preguntas.html" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
               </li>
               <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="./privacidad.html" class="link-secondary" accesskey="g">Política de Privacidad</a>
+                <a href="privacidad.html#privacidad" class="link-secondary" accesskey="g">Política de Privacidad</a>
               </li>
               <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
                 <a href="./Tyc.html" class="link-secondary" accesskey="h">Términos y Condiciones</a>
@@ -150,21 +125,7 @@
     </div>
 </footer>
 
-<script>
-  // Obtener los parámetros de la URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const modelo = urlParams.get('modelo');
-
-  // Establecer el valor del campo de modelo
-  document.getElementById('modelo').value = modelo;
-
-  // Manejar el envío del formulario
-  document.getElementById('reservationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('¡Reserva realizada con éxito para el ' + modelo + '!');
-    // Aquí puedes agregar el código para enviar los datos a tu servidor
-  });
-</script>
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
