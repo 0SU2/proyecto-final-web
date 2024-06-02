@@ -74,18 +74,21 @@
         }
 
 		public function reservar() {
-			$userId = $_POST['userId'];
-			$modeloId = $_POST['modelo'];
-			$fecha = $_POST['fecha'];
-			$duracion = $_POST['duracion'];
+			$id_usuario = $_POST['id_usuario'];
+			$id_carro = $_POST['id_carro'];
+			$dia_alquilacion = $_POST['dia_alquilacion'];
+			$duracion = $_POST['duracion']; 
+			$costo_total = $_POST['costo_total'];
+			$estatus = $_POST['estatus'];
+			$modelo = $_POST['modelo'];
 		
-			$result = $this->userService->reservarAuto($userId, $modeloId, $fecha, $duracion);
+			 $result = $this->userService->reservarAuto($id_usuario, $id_carro, $dia_alquilacion, $duracion, $estatus, $modelo);
 			if ($result) {
-			  echo json_encode(array('success' => true, 'message' => 'Reserva realizada con éxito'));
+				echo json_encode(array('success' => true, 'message' => 'Reserva realizada con éxito'));
 			} else {
-			  echo json_encode(array('success' => false, 'message' => 'Error al realizar la reserva'));
+				echo json_encode(array('success' => false, 'message' => 'Error al realizar la reserva'));
 			}
-		  }
+		}
 
   }
 

@@ -82,26 +82,26 @@ class UserService implements UserInterface {
 
     // Nueva función para obtener los modelos disponibles
     public function getModelosDisponibles() {
-        $sql_query = "SELECT modelo FROM carros WHERE cantidad > 0";
+        $sql_query = "SELECT id, modelo, categoria, precio, descripcion, disponibles, estatus FROM carros WHERE disponibles > 0";
         
         $result = $this->db->query($sql_query);
         $modelos = array();
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $modelos[] = $row['modelo'];
+                $modelos[] = $row;
             }
         }
         return $modelos;
     }
 
-    public function reservarAuto($userId, $modeloId, $fecha, $duracion) {
-        $sql_query = "INSERT INTO reservas (user_id, modelo_id, fecha, duracion) VALUES ('$userId', '$modeloId', '$fecha', '$duracion')";
+    public function reservarAuto($id_usuario, $id_carro, $dia_alquilacion, $costo_total, $estatus, $modelo) {
+        $sql_query = "INSERT INTO pedidos (id_usuario, id_carro, dia_alquilacion, costo_total, estatus, modelo) VALUES ('$id_usuario', '$id_carro', '$dia_alquilacion', '$costo_total', '$estatus', '$modelo')";
         if ($this->db->query($sql_query) === TRUE) {
             return true;
         } else {
             return false;
         }
-    }
+    }    
 }
 ?>
