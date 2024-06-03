@@ -49,6 +49,16 @@
 			}
 		}
 
+		public function obtenerTodosCarros() {
+			$carros = $this->userService->obtenerTodosCarros();
+
+			if($carros) {
+					echo json_encode(array('success'=> true, "carros" => $carros));
+			} else {
+					echo json_encode(array('success'=> false, "message" => "Error al obtener carros"));
+			}
+		}
+
   }
 
 ?>

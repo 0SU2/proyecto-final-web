@@ -43,7 +43,23 @@
 			}
 			return false;
 		}
+
+    public function obtenerTodosCarros() {
+			$sql = "SELECT * FROM carros";
+			$result = $this->db->query($sql);
+			$carros = array();
+
+			if ($result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					$carros[] = $row;
+				}
+			}
+
+			return $carros;
+		}
     
   }
 
 ?>
+
+

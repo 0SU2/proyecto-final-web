@@ -13,6 +13,12 @@
         $userController->login();
       }
       break;
+    case 'GET': 
+      $accion = $_GET['accion'];
+      if($accion == 'todos') {
+        $userController->obtenerTodosCarros();
+      }
+      break;
   }
 
 ?>

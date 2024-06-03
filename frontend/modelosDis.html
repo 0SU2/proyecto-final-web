@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AVIS - Renta de Carros">
+    <meta name="author" content="AVIS">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>AVIS - Renta de Carros</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/product.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<header class="header-page">
+  <div class="container ">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="./index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!-- Ruta del logo -->
+        <img class="bi me-2" src="./assets/images/logo.jpg" alt="AVIS Logo" width="auto" height="40">
+        <span style="font-family: 'Poppins', sans-serif;" class="fs-4">AVIS</span>
+      </a>
+
+      <ul class="nav col-md-4 text-end">
+        <li><a href="./index.html" class="nav-link px-2 link-dark">Home</a></li>
+        <li><a href="./login.html" class="nav-link px-2 link-dark">Perfil</a></li>
+        <li><a href="./modelos.html" class="nav-link px-2 link-dark">Modelos</a></li>
+        <li><a href="./nosotros.html" class="nav-link px-2 link-dark">Nosotros</a></li>
+      </ul>
+    </header>
+  </div>
+</header>
+
+<main>
+  <div class="position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
+    <!-- Ruta de la imagen principal -->
+    <h1 class="text-center">Nuestros Modelos</h1>
+    <p class="lead text-center">Descubre nuestra amplia gama de vehículos disponibles para ti.</p>
+
+    <div class="container-fluid"> <!-- Cambio a container-fluid -->
+      <div class="row justify-content-center"> <!-- Alineamos al centro -->
+        <div class="col-11"> <!-- Div contenedor de la tabla -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Disponibles</th>
+                <th scope="col">Estatus</th>
+              </tr>
+            </thead>
+            <tbody id="carrosBody">
+              <!-- Aquí se agregarán las filas de la tabla -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+      <template id="rowCarros">
+        <tr>
+          <td>1</td>
+          <td>Modelo</td>
+          <td>categoria</td>
+          <td>Precio</td>
+          <td>Descripcion</td>
+          <td>Disponibles</td>
+          <td>Estatus</td>
+          
+        </tr>
+      </template>
+  
+<!-- ejemplo de como se verias los autos pero solo es html, arriba si muestra los carros disponibles-->
+
+    <div class="accordion position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light"" id="content-filtro-autos">
+      <div class="position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
+          <button class="accordion-button bg-gray rounded-0 text-dark" id="btn-filtro-autos" type="button" data-bs-toggle="collapse" data-bs-target="#filtro-autos" aria-expanded="true" aria-controls="filtro-autos" arial-label="Despliega el filtro de categorías de autos" fdprocessedid="0anmxd">
+              <span class="font-semibold">Filtrado por:</span> <span class="font-bold ms-1">Tipos de Vehiculo</span>
+          </button>
+          <div id="filtro-autos" class="accordion-collapse bg-gray rounded-0 collapse show" aria-labelledby="btn-filtro-autos">
+              <div class="accordion-body">
+                  <ul class="nav nav-tabs nav-fill" id="navFlota" role="tablist">
+                      <li class="nav-item col-12 col-md-2" role="presentation">
+                          <a class="nav-link p-2 font-bold text-capitalize rounded-1 active" id="todos" data-bs-toggle="tab" href="#todos-los-autos" role="tab" aria-controls="todos-los-autos" aria-selected="true" onclick="filterVehicles('todos')">
+                              <img alt="flota-avis-todos" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="/images/categorias-filtro/flota-todos.webp" style="animation-duration: 500ms;">
+                              <span class="text-dark mt-1">Todos los Autos (18)</span>
+                          </a>
+                      </li>
+                      <li class="nav-item col-12 col-md-2" role="presentation">
+                          <a class="nav-link p-2 font-bold text-capitalize rounded-1" id="Autos" data-bs-toggle="tab" href="#autos" role="tab" aria-controls="562" aria-selected="false" onclick="filterVehicles('autos')">
+                              <img alt="flota-avis" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="https://imageshandlerv2api.avis.mx/api/v1/ImagesHandler/?filename=filtro-autos-avis.webp&amp;categoria=2" style="animation-duration: 500ms;">
+                              <span class="text-dark mt-1">Autos (7)</span>
+                          </a>
+                      </li>
+                      <li class="nav-item col-12 col-md-2" role="presentation">
+                          <a class="nav-link p-2 font-bold text-capitalize rounded-1" id="Camionetas" data-bs-toggle="tab" href="#camionetas" role="tab" aria-controls="563" aria-selected="false" onclick="filterVehicles('camionetas')">
+                              <img alt="flota-avis" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="https://imageshandlerv2api.avis.mx/api/v1/ImagesHandler/?filename=filtro-suv-avis.webp&amp;categoria=2" style="animation-duration: 500ms;">
+                              <span class="text-dark mt-1">Camionetas (6)</span>
+                          </a>
+                      </li>
+                      <li class="nav-item col-12 col-md-2" role="presentation">
+                          <a class="nav-link p-2 font-bold text-capitalize rounded-1" id="Autos-de-Lujo" data-bs-toggle="tab" href="#autos-lujo" role="tab" aria-controls="564" aria-selected="false" onclick="filterVehicles('autos-lujo')">
+                              <img alt="flota-avis" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="https://imageshandlerv2api.avis.mx/api/v1/ImagesHandler/?filename=filtro-minivan-avis.webp&amp;categoria=2" style="animation-duration: 500ms;">
+                              <span class="text-dark mt-1">Autos de Lujo (5)</span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div id="autos">
+        <h2 class="my-4">Autos</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Mazda 3 Sedan 2024</b></h4>
+                <img src="./assets/images/auto1.jpg" alt="Auto 1">
+                <p>Es un auto compacto que ofrece una sensación de calidad en todos los aspectos.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('Mazda 3 Sedan 2024')">Reservar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Aveo Sedan 2024</b></h4>
+                <img src="./assets/images/auto2.jpg" alt="Auto 2">
+                <p>Este auto es una opción económica para quienes buscan un vehículo pequeño y de facil maniobridad.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('Aveo Sedan 2024')">Reservar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Honda City 2024</b></h4>
+                <img src="./assets/images/auto3.jpg" alt="Auto 3">
+                <p>Este auto tiene un estilo elegante y ofrece gran eficiencia de combustible y confiabilidad.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('Honda City 2024')">Reservar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="camionetas">
+        <h2 class="my-4">Camionetas</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>MG ZS 2024</b></h4>
+                <img src="./assets/images/camioneta1.jpg" alt="Camioneta 1">
+                <p>Camioneta económica y cómoda.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('MG ZS 2024')">Reservar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Nissan Kick 2024</b></h4>
+                <img src="./assets/images/camioneta2.jpg" alt="Camioneta 2">
+                <p>Camioneta espaciosa y cómoda.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('Nissan Kick 2024')">Reservar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Toyota Corolla Cross 2024</b></h4>
+                <img src="./assets/images/camioneta3.jpg" alt="Camioneta 3">
+                <p>Camioneta de mayor seguridad y tecnologia avanzada.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('Toyota Corolla Cross 2024')">Reservar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div id="autos-lujo">
+        <h2 class="my-4">Coches de Lujo</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Audi R8 2023</b></h4>
+                <img src="./assets/images/lujo1.jpg" alt="Coche de Lujo 1">
+                <p>Auto de lujo con motor v10 de 5.2 Litros y con tracción trasera, también tiene una transmisión de 7 velocidades.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('Audi R8 2023')">Reservar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>BMW i8 2020</b></h4>
+                <img src="./assets/images/lujo2.jpg" alt="Coche de Lujo 2">
+                <p>Increíble auto con Turbo, 1.5 Litros y con transmisión de 6 velocidades automáticas con opción a un modo manual.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('BMW i8 2020')">Reservar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Acura NSX 2017</b></h4>
+                <img src="./assets/images/lujo3.jpg" alt="Coche de Lujo 3">
+                <p>Fantástico auto con motor V6 de 2.7 Litros.</p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn btn-primary" onclick="reservar('Acura NSX 2017')">Reservar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+
+<footer class="footer-page">
+    <div class="container container-responsive py-5">
+      <div class="row">
+        <div class="col-sm-12 col-lg d-flex justify-content-center justify-content-lg-start my-3 my-lg-0">
+          <a class="navbar-brand me-0" href="index.html" accesskey="a">
+            <img alt="avis méxico logo" class="img-fluid d-block me-0 animation fade-in" width="90" height="31" src="https://avis.mx/images/logos/avis-logo-dark.webp" style="animation-duration: 500ms;">
+          </a>
+        </div>
+      </div>
+        <hr class="my-4">
+        <div class="row d-flex justify-content-between">
+
+          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Servicios</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a>
+              </li>
+              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a>
+              </li>
+              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Ayuda</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a href="./preguntas.html" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
+              </li>
+              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a href="./privacidad.html" class="link-secondary" accesskey="g">Política de Privacidad</a>
+              </li>
+              <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a href="./Tyc.html" class="link-secondary" accesskey="h">Términos y Condiciones</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Compañía</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="./nosotros.html">Sobre Nosotros</a>
+              </li>
+              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+                <a class="link-secondary" href="./contacto.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <hr class="my-4">
+    </div>
+</footer>
+
+<script>
+  function filterVehicles(category) {
+    const sections = document.querySelectorAll('#autos, #camionetas, #autos-lujo');
+    sections.forEach(section => section.style.display = 'none');
+
+    if (category === 'todos') {
+      sections.forEach(section => section.style.display = 'block');
+    } else {
+      document.getElementById(category).style.display = 'block';
+    }
+  }
+
+  function reservar(modelo) {
+    alert('Has seleccionado reservar el ' + modelo);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    showAllSections();
+  });
+
+  function showAllSections() {
+    const sections = document.querySelectorAll('#autos, #camionetas, #autos-lujo');
+    sections.forEach(section => section.style.display = 'block');
+  }
+
+  function filterVehicles(category) {
+    const sections = document.querySelectorAll('#autos, #camionetas, #autos-lujo');
+    sections.forEach(section => section.style.display = 'none');
+
+    if (category === 'todos') {
+      showAllSections();
+    } else {
+      document.getElementById(category).style.display = 'block';
+    }
+  }
+
+  function reservar(modelo) {
+    alert('Has seleccionado reservar el ' + modelo);
+  }
+
+</script>
+
+<script src="./assets/js/modelos.js"></script>
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
