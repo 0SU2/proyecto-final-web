@@ -45,11 +45,12 @@
         <span style="font-family: 'Poppins', sans-serif;" class="fs-4">AVIS</span>
       </a>
 
-      <ul class="nav col-md-4 text-end">
-        <li><a href="./index.html" class="nav-link px-2 link-dark">Home</a></li>
-        <li><a href="./login.html" class="nav-link px-2 link-dark">Perfil</a></li>
-        <li><a href="./modelos.html" class="nav-link px-2 link-dark">Modelos</a></li>
-        <li><a href="./nosotros.html" class="nav-link px-2 link-dark">Nosotros</a></li>
+      <ul class="nav col-md-5 text-end">
+        <li><a href="./index.html" id="home" class="nav-link px-2 link-dark">Home</a></li>
+        <li><a id="reservar" class="nav-link px-2 link-dark">Reserva!</a></li>
+        <li><a id="perfil" class="nav-link px-2 link-dark">Perfil</a></li>
+        <li><a href="./modelos.html" id="modelos" class="nav-link px-2 link-dark">Modelos</a></li>
+        <li><a href="./nosotros.html" id="nosotros" class="nav-link px-2 link-dark">Nosotros</a></li>
       </ul>
     </header>
   </div>
@@ -63,25 +64,27 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <form id="reservationForm">
+          <input type="hidden" id="userId" name="id_usuario" value="">
+          <input type="hidden" id="modelo-nombre-completo" name="modelo" value="">
           <div class="mb-3">
             <label for="modelo" class="form-label">Modelo de Auto</label>
-            <input type="text" class="form-control" id="modelo" name="modelo" readonly>
+            <select class="form-control" id="modelo" name="id_carro" required></select>
           </div>
           <div class="mb-3">
-            <label for="fecha" class="form-label">Fecha de Reserva</label>
-            <input type="date" class="form-control" id="fecha" name="fecha" required>
+            <label for="dia_alquilacion" class="form-label">Fecha de Reserva</label>
+            <input type="date" class="form-control" id="dia_alquilacion" name="dia_alquilacion" required>
           </div>
           <div class="mb-3">
-            <label for="duracion" class="form-label">Duración de la Reserva (días)</label>
+            <label for="duracion" class="form-label">Duración (días)</label>
             <input type="number" class="form-control" id="duracion" name="duracion" required>
           </div>
           <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre Completo</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <label for="costo_total" class="form-label">Costo Total</label>
+            <input type="number" class="form-control" id="costo_total" name="costo_total" required>
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <label for="estatus" class="form-label">Estatus</label>
+            <input type="text" class="form-control" id="estatus" name="estatus" value="reservado" readonly>
           </div>
           <button type="submit" class="btn btn-primary">Reservar</button>
         </form>
@@ -91,80 +94,61 @@
 </main>
 
 <footer class="footer-page">
-    <div class="container container-responsive py-5">
-      <div class="row">
-        <div class="col-sm-12 col-lg d-flex justify-content-center justify-content-lg-start my-3 my-lg-0">
-          <a class="navbar-brand me-0" href="index.html" accesskey="a">
-            <img alt="avis méxico logo" class="img-fluid d-block me-0 animation fade-in" width="90" height="31" src="https://avis.mx/images/logos/avis-logo-dark.webp" style="animation-duration: 500ms;">
-          </a>
-        </div>
+  <div class="container container-responsive py-5">
+    <div class="row">
+      <div class="col-sm-12 col-lg d-flex justify-content-center justify-content-lg-start my-3 my-lg-0">
+        <a class="navbar-brand me-0" href="index.html" accesskey="a">
+          <img alt="avis méxico logo" class="img-fluid d-block me-0 animation fade-in" width="90" height="31" src="https://avis.mx/images/logos/avis-logo-dark.webp" style="animation-duration: 500ms;">
+        </a>
       </div>
-        <hr class="my-4">
-        <div class="row d-flex justify-content-between">
-
-          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Servicios</h5>
-            <ul class="list-unstyled mb-0">
-              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a>
-              </li>
-              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a>
-              </li>
-              <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Ayuda</h5>
-
-            <ul class="list-unstyled mb-0">
-              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="./preguntas.html" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
-              </li>
-              <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="./privacidad.html" class="link-secondary" accesskey="g">Política de Privacidad</a>
-              </li>
-              <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a href="./Tyc.html" class="link-secondary" accesskey="h">Términos y Condiciones</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-            <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Compañía</h5>
-            <ul class="list-unstyled mb-0">
-              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="./nosotros.html">Sobre Nosotros</a>
-              </li>
-              <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
-                <a class="link-secondary" href="./contacto.html">Contacto</a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-        <hr class="my-4">
     </div>
+    <hr class="my-4">
+    <div class="row d-flex justify-content-between">
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Servicios</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="modelos.html#renta-autos">Renta de Autos</a>
+          </li>
+          <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="modelos.html#renta-camionetas">Renta de Camionetas</a>
+          </li>
+          <li class="mb-3 small h6 text-center text-lg-start d-flex flex-column justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="modelos.html#autos-lujo">Renta de Autos de Lujo</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+        <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Ayuda</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a href="" class="link-secondary" accesskey="f">Preguntas Frecuentes</a>
+          </li>
+          <li class="mb-lg-3 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a href="./privacidad.html" class="link-secondary" accesskey="g">Política de Privacidad</a>
+          </li>
+          <li class="mb-lg-5 mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a href="" class="link-secondary" accesskey="h">Términos y Condiciones</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+        <h5 class="h5 font-bold mb-3 d-flex justify-content-center justify-content-lg-start">Compañía</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="#">Sobre Nosotros</a>
+          </li>
+          <li class="mb-3 small h6 d-flex justify-content-center justify-content-lg-start font-semibold">
+            <a class="link-secondary" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-4">
+  </div>
 </footer>
 
-<script>
-  // Obtener los parámetros de la URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const modelo = urlParams.get('modelo');
-
-  // Establecer el valor del campo de modelo
-  document.getElementById('modelo').value = modelo;
-
-  // Manejar el envío del formulario
-  document.getElementById('reservationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('¡Reserva realizada con éxito para el ' + modelo + '!');
-    // Aquí puedes agregar el código para enviar los datos a tu servidor
-  });
-</script>
+<script src="./assets/js/reservar.js"></script>
 
 </body>
 </html>

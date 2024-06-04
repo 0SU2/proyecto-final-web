@@ -14,7 +14,15 @@ if(loginForm) {
     })
     .then((response) => response.json())
     .then((res) => {
-      console.log('response => ', res);
+      if(res.success) {
+        alert(res.message)
+        window.location.href = `../frontend/user.html?id=${res.result}`
+        return;
+      } else {
+        alert(res.message);
+        return;
+      }
+
     })
     .catch((err) => {
       console.log('error => ', err);
@@ -33,8 +41,14 @@ if(registrarForm) {
     })
     .then((response) => response.json())
     .then((res) => {
-      console.log('server res =>', res)
-      
+      if(res.success) {
+        alert(res.message)
+        window.location.href = `../frontend/user.html?id=${res.result}`
+        return;
+      } else {
+        alert(res.message);
+        return;
+      }
     })
     .catch((err) => {
       console.log('server error =>', err)

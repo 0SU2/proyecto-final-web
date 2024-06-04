@@ -18,8 +18,7 @@
 				if(!empty($usuario) && !empty($password)) {
 					$user = $this->userService->login($usuario, $password);
 					if($user) {
-						session_start();
-						echo json_encode(array("success" => true, "message" => "Inicio Satisfactorio", 'result' => session_id()));
+						echo json_encode(array("success" => true, "message" => "Inicio Satisfactorio", 'result' => $user['id']));
 					} else {
 						echo json_encode(array("success" => false, "message" => "Credenciales Incorrectas"));
 					}
@@ -43,9 +42,51 @@
 			
 			$resultado = $this->userService->registrarUsuario($usuarioNuevo);
 			if($resultado) {
-				echo json_encode(array('success' => true, 'message' => 'Registro Exitoso'));
+				$userId = $this->userService->getUserId($usuario, $password);
+				echo json_encode(array('success' => true, 'message' => 'Registro Exitoso', 'result' => $userId));
 			} else {
 				echo json_encode(array('success' => false, 'message' => 'Error al registar'));
+			}
+		}
+
+		public function getAllUserPedidos($userId) {
+			$data = $this->userService->getPedidosUser($userId);
+			echo json_encode(array('success' => true, 'result' => $data));
+		}
+
+		public function entregarCarro($id_pedido) {
+			$response = $this->userService->entregarCarroUsuario($id_pedido);
+			if($response) {
+				echo json_encode(array('success' =>  true, 'message' => 'Informacion actualizada!'));
+			} else {
+				echo json_encode(array("succes" => false, 'message' => 'Error'));
+			}
+		}
+
+		public function obtenerUsuarioData($userId) {
+			$response = $this->userService->datosCompletosUsuario($userId);
+			echo json_encode(array('success' => true, 'result' => $response));
+		}
+
+		public function getModelos() {
+				$modelos = $this->userService->getModelosDisponibles();
+				echo json_encode(array('success' => true, 'modelos' => $modelos));
+		}
+
+		public function reservar() {
+			$id_usuario = $_POST['id_usuario'];
+			$id_carro = $_POST['id_carro'];
+			$dia_alquilacion = $_POST['dia_alquilacion'];
+			$costo_total = (int)($_POST['costo_total']);
+			$estatus = $_POST['estatus'];
+			$modelo = $_POST['modelo'];
+
+			$result = $this->userService->reservarAuto($id_usuario, $id_carro, $dia_alquilacion, $costo_total, $estatus, $modelo);
+			
+			if ($result) {
+				echo json_encode(array('success' => true, 'message' => 'Reserva realizada con éxito'));
+			} else {
+				echo json_encode(array('success' => false, 'message' => 'Error al realizar la reserva'));
 			}
 		}
 
