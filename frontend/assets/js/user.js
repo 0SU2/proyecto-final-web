@@ -23,7 +23,7 @@ document.getElementById('reservar').addEventListener('click', () => {
     const params = new URLSearchParams(window.location.search);
     const userId =  params.get('id');
     if(userId) {
-      window.location.href = `../frontend/reservar.html?id=${userId}`;
+      window.location.href = `../frontend/modelosDis.html?id=${userId}`;
       return;
     }
 })

@@ -2,8 +2,31 @@ const carrosBody = document.getElementById('carrosBody');
 const rowCarros = document.getElementById('rowCarros').content;
 const fragment = document.createDocumentFragment();
 let inputId = document.getElementById('id');
-  
+const headerSelected = document.getElementById('reservar');
+
+document.getElementById('perfil').addEventListener('click', () => {
+    // leer un parametro
+    const params = new URLSearchParams(window.location.search);
+    const userId =  params.get('id');
+    if(userId) {
+      window.location.href = `../frontend/user.html?id=${userId}`;
+      return;
+    }
+})
+
+document.getElementById('reservar').addEventListener('click', () => {
+    // leer un parametro
+    const params = new URLSearchParams(window.location.search);
+    const userId =  params.get('id');
+    if(userId) {
+      window.location.href = `../frontend/modelosDis.html?id=${userId}`;
+      return;
+    }
+})
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    headerSelected.classList.add('active-header');
     loadAllCars();
 })
   

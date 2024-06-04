@@ -24,6 +24,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     }
     break;
   case 'GET':
+    $accion = $_POST['accion'];
     if($accion == 'todos') {
       $userController->obtenerTodosCarros();
     }
