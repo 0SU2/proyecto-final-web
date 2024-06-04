@@ -15,7 +15,8 @@ switch ($_SERVER["REQUEST_METHOD"]) {
       $userController->getAllUserPedidos($idUser);
     } elseif ($accion == 'entregarCarro') {
       $idPedido = $_POST['id'];
-      $userController->entregarCarro($idPedido);
+      $idCarro = $_POST['idCarro'];
+      $userController->entregarCarro($idPedido, $idCarro);
     } elseif ($accion == 'usuarioDatos') {
       $idUser = $_POST['id'];
       $userController->obtenerUsuarioData($idUser);

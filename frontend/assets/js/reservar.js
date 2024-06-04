@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = `../frontend/user.html?id=${userId}`;
   });
 
+  document.getElementById('backToModels').addEventListener('click', () => { // boton para regresar
+     window.location.href = `../frontend/modelosDis.html?id=${userId}`;
+  });
+
   document.getElementById('reservationForm').addEventListener('submit', function(event) {
       event.preventDefault();
       
@@ -31,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(data);
           if (data.success) {
               alert('¡Reserva realizada con éxito!');
+              window.location.href= `../frontend/user.html?id=${userId}`
           } else {
               alert('Hubo un problema con la reserva: ' + data.message);
           }
@@ -46,14 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
   .then(data => {
       if (data.success) {
           const modeloSelect = document.getElementById('modelo');
-          modeloSelect.innerHTML = '';
+          const displayName = document.getElementById('display-name-carro')
           data.modelos.forEach(modelo => {
+            if(modelo.id == carroId) {
               const option = document.createElement('option');
+              modeloSelect.value = modelo.id;
+              displayName.value = modelo.modelo
               option.value = modelo.id;
               option.setAttribute('data-precio', modelo.precio); // Añade el precio como atributo de datos
               option.setAttribute('nombre-modelo', modelo.modelo); // añade el nombre del modelo como atributo de datos
               option.textContent = `${modelo.modelo} - ${modelo.categoria}`;
-              modeloSelect.appendChild(option);
+              displayName.appendChild(option)
+            }
+
           });
       } else {
           console.error('Error al obtener los modelos:', data.message);
@@ -69,13 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function calculateCostoTotal() {
-  const modeloSelect = document.getElementById('modelo');
-  const selectedOption = modeloSelect.options[modeloSelect.selectedIndex];
-  const precioBase = parseFloat(selectedOption.getAttribute('data-precio'));
+  const modeloSelect = document.getElementsByTagName('option');
+  const precioBase = parseFloat(modeloSelect[0].getAttribute('data-precio'));
   const duracion = parseInt(document.getElementById('duracion').value);
   
   // obtener el nombre del modelo para asignarlo y mandarlo a la base de datos
-  const nombreModelo = selectedOption.getAttribute('nombre-modelo');
+  const nombreModelo = modeloSelect[0].getAttribute('nombre-modelo');
   document.getElementById('modelo-nombre-completo').value = nombreModelo;
 
   if (!isNaN(precioBase) && !isNaN(duracion)) {

@@ -7,6 +7,7 @@ const fragment = document.createDocumentFragment();
 const idForm = document.getElementById('idForm');
 let accion = document.getElementById('accion');
 let pedidosId = document.getElementById('id');
+let carroId = document.getElementById('idCarro');
 
 document.getElementById('perfil').addEventListener('click', () => {
     // leer un parametro
@@ -34,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const userId =  params.get('id');
     if(userId) {
-        console.log(' id => ', userId);
         obtenerDatosUsuario(userId);
         loadData(userId)
     }
@@ -81,7 +81,7 @@ const cargarDatosUsuario = (data) => {
     const clone = usuarioTablaDatos.cloneNode(true);
     clone.querySelectorAll('td')[0].textContent = data.id_carro;
     clone.querySelectorAll('td')[1].textContent = data.modelo
-    clone.querySelectorAll('td')[2].textContent = data.dia_alquilacion;
+    clone.querySelectorAll('td')[2].textContent = data.dia_alquilacion.substring(0,10);
     clone.querySelectorAll('td')[3].textContent = '$' + data.costo_total;
     clone.querySelectorAll('td')[4].textContent = data.estatus;
     clone.querySelector('.btn').dataset.id = data.id_pedido;
@@ -91,8 +91,7 @@ const cargarDatosUsuario = (data) => {
       clone.querySelectorAll('td')[4].classList.add('text-warning');
       const btnActualizar = clone.querySelector('.btn');
       btnActualizar.addEventListener('click', () => {
-          console.log('@@ btnEntregado => ', btnActualizar.dataset.id);
-          entregarCarro(btnActualizar.dataset.id);
+          entregarCarro(btnActualizar.dataset.id, data.id_carro);
       })
     } else {
       clone.querySelector('.btn').textContent = "finalizado";
@@ -107,12 +106,12 @@ const cargarDatosUsuario = (data) => {
   usuarioOrdenes.appendChild(fragment);
 }
 
-const entregarCarro = (id) => {
+const entregarCarro = (id, idCarro) => {
   // boton para entregar el carro
   pedidosId.value = id;
+  carroId.value = idCarro
   accion.value = 'entregarCarro';
   const form = new FormData(idForm);
-  console.log(form);
   fetch('../backend/index.php', {
     method: 'POST',
     body: form,

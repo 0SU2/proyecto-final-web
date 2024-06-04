@@ -64,11 +64,16 @@ class UserService implements UserInterface {
         return $data;
     }
 
-    public function entregarCarroUsuario($id_pedido) {
+    public function entregarCarroUsuario($id_pedido, $id_carro) {
         $sql_query = "UPDATE pedidos SET estatus = 'entregado' WHERE id_pedido = $id_pedido";
 
         if($this->db->query($sql_query) == TRUE) {
-            return true;
+            $sql_update = "UPDATE carros SET disponibles = disponibles + 1 WHERE id = $id_carro";
+            if($this->db->query($sql_update) == TRUE) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
@@ -82,7 +87,7 @@ class UserService implements UserInterface {
 
     // Nueva función para obtener los modelos disponibles
     public function getModelosDisponibles() {
-        $sql_query = "SELECT id, modelo, categoria, precio, descripcion, disponibles, estatus FROM carros WHERE disponibles > 0";
+        $sql_query = "SELECT *  FROM carros ";
         
         $result = $this->db->query($sql_query);
         $modelos = array();
@@ -98,7 +103,12 @@ class UserService implements UserInterface {
     public function reservarAuto($id_usuario, $id_carro, $dia_alquilacion, $costo_total, $estatus, $modelo) {
         $sql_query = "INSERT INTO pedidos (id_usuario, id_carro, dia_alquilacion, costo_total, estatus, modelo) VALUES ('$id_usuario', '$id_carro', '$dia_alquilacion', $costo_total, '$estatus', '$modelo')";
         if ($this->db->query($sql_query) === TRUE) {
-            return true;
+            $sql_remove = "UPDATE carros SET disponibles = disponibles - 1 WHERE id = $id_carro";
+            if($this->db->query($sql_remove) == TRUE) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
