@@ -24,28 +24,13 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     }
     break;
   case 'GET':
+    if($accion == 'todos') {
+      $userController->obtenerTodosCarros();
+    }
     if (isset($_GET['accion']) && $_GET['accion'] == 'getModelos') {
       $userController->getModelos();
     }
     break;
 }
-  $userController = new UserController();
-  switch ($_SERVER["REQUEST_METHOD"]) {
-    case 'POST':
-      $accion = $_POST['accion'];
-      if($accion == 'registrar') {
-        $userController->registrar();
-      }
-      if($accion == 'login') {
-        $userController->login();
-      }
-      break;
-    case 'GET': 
-      $accion = $_GET['accion'];
-      if($accion == 'todos') {
-        $userController->obtenerTodosCarros();
-      }
-      break;
-  }
 
 ?>

@@ -103,36 +103,24 @@ class UserService implements UserInterface {
             return false;
         }
     }    
-}
-		public function login($usuario, $password) {
-			$sql_usuario = "SELECT * FROM usuarios WHERE usuario= '$usuario'";
-      $query = $this->db->prepare("SELECT * FROM usuarios WHERE correo = :username AND password = :pass");
-			$result = $this->db->query($sql_usuario);
-			if ($result->num_rows == 1) {
-				$user = $result->fetch_assoc();
-				if (password_verify($password, $user['password'])) {
-					return $user;
-				}
-			}
-			return false;
-		}
-
     public function obtenerTodosCarros() {
-			$sql = "SELECT * FROM carros";
-			$result = $this->db->query($sql);
-			$carros = array();
+        $sql = "SELECT * FROM carros";
+        $result = $this->db->query($sql);
+        $carros = array();
 
-			if ($result->num_rows > 0) {
-				while ($row = $result->fetch_assoc()) {
-					$carros[] = $row;
-				}
-			}
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $carros[] = $row;
+            }
+        }
 
-			return $carros;
-		}
+        return $carros;
+    }
     
-  }
 
+}
+
+    
 ?>
 
 
