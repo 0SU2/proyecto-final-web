@@ -1,6 +1,13 @@
 const carrosBody = document.getElementById('carrosBody');
+const camionetasBody = document.getElementById('camionetasBody');
+const carrosLujoBody = document.getElementById('carrosLujoBody');
+
 const rowCarros = document.getElementById('rowCarros').content;
-const fragment = document.createDocumentFragment();
+
+const fragmentCarros = document.createDocumentFragment();
+const fragmentCamionetas = document.createDocumentFragment();
+const fragmentDeLujo = document.createDocumentFragment();
+
 let inputId = document.getElementById('id');
 const headerSelected = document.getElementById('reservar');
 
@@ -24,19 +31,21 @@ document.getElementById('reservar').addEventListener('click', () => {
     }
 })
 
-
 document.addEventListener('DOMContentLoaded', () => {
+    // leer un parametro
+    const params = new URLSearchParams(window.location.search);
+    const userId =  params.get('id');
     headerSelected.classList.add('active-header');
-    loadAllCars();
+    loadAllCars(userId);
 })
   
-const loadAllCars = () => {
+const loadAllCars = (userId) => {
     fetch('../backend/index.php?accion=todos')
     .then((res) => res.json())
     .then(data => {
     console.log('@@ data => ', data);
     if (data.carros && data.carros.length > 0 ) {
-        pinterCarros(data.carros);
+        pinterCarros(userId, data.carros);
     }
     })
     .catch(err => {
@@ -44,33 +53,94 @@ const loadAllCars = () => {
     })
 }
   
-const pinterCarros = (carros) => {
+const pinterCarros = (userId, carros) => {
     carrosBody.innerHTML = '';
-    carros.forEach((car) => {
-        const clone = rowCarros.cloneNode(true);
-        clone.querySelectorAll('td')[0].textContent = car.id;
-        clone.querySelectorAll('td')[1].textContent = car.modelo;
-        clone.querySelectorAll('td')[2].textContent = car.categoria;
-        clone.querySelectorAll('td')[3].textContent = car.precio;
-        clone.querySelectorAll('td')[4].textContent = car.descripcion;
-        clone.querySelectorAll('td')[5].textContent = car.disponibles;
-        clone.querySelectorAll('td')[6].textContent = car.estatus;
+    camionetasBody.innerHTML = '';
+    carrosLujoBody.innerHTML = '';
 
-        if (car.estatus === 'Disponible') {
-            const btnReservar = document.createElement('button');
-            btnReservar.textContent = 'Reservar';
-            btnReservar.classList.add('btn', 'btn-primary');
-            btnReservar.addEventListener('click', () => {
-                window.location.href = '../frontend/reservar.html';
-            });
-        clone.appendChild(btnReservar);
+    // vamos a crear tablas con la foto del modelo y secciones
+    carros.forEach(element => {
+        if(element.categoria.includes('Autos')) {
+            const clone = document.getElementById('rowCarros').content.cloneNode(true);
+            clone.querySelectorAll('img')[0].setAttribute('src', element.foto)
+            clone.querySelectorAll('b')[0].textContent = element.modelo;
+            clone.querySelectorAll('p')[0].textContent = element.descripcion;
+            clone.querySelectorAll('p')[1].textContent = 'Disponibles: ' + element.disponibles;
+            clone.querySelector('.btn').dataset.id = element.id;
+            // checar que el carro tenga carros disponibles, si tiene, el boton estara disponible
+            if(element.disponibles == 0) {
+                clone.querySelector('.btn').textContent = "Agotado";
+                clone.querySelector('.btn').classList.add('btn-danger');
+            } else {
+                // caso de que si tengamos alguno disponible
+                clone.querySelector('.btn').textContent = "Reservar";
+                clone.querySelector('.btn').classList.add('btn-success');
+                // funcionalidad para reservar el carro
+                const reservarBoton = clone.querySelector('.btn');
+                reservarBoton.addEventListener('click', () => {
+                    // al momento de que el usuario de click, mandarlo a la pagina de reserva con el id del
+                    // usuario y del carro que quiere reservar
+                    window.location.href = `../frontend/reservar.html?id=${userId}&carId=${reservarBoton.dataset.id}`
+                })
+
+            }
+            fragmentCarros.appendChild(clone);
         }
-        fragment.appendChild(clone);
-    }); 
-    carrosBody.appendChild(fragment);
-  }
-  
+        if(element.categoria.includes('Camionetas')) {
+            const clone = document.getElementById('rowCarros').content.cloneNode(true);
+            clone.querySelectorAll('img')[0].setAttribute('src', element.foto)
+            clone.querySelectorAll('b')[0].textContent = element.modelo;
+            clone.querySelectorAll('p')[0].textContent = element.descripcion;
+            clone.querySelectorAll('p')[1].textContent = 'Disponibles: ' + element.disponibles;
+            clone.querySelector('.btn').dataset.id = element.id;
+            // checar que el carro tenga carros disponibles, si tiene, el boton estara disponible
+            if(element.disponibles == 0) {
+                clone.querySelector('.btn').textContent = "Agotado";
+                clone.querySelector('.btn').classList.add('btn-danger')
+            } else {
+                // caso de que si tengamos alguno disponible
+                clone.querySelector('.btn').textContent = "Reservar";
+                clone.querySelector('.btn').classList.add('btn-success');
+                // funcionalidad para reservar el carro
+                const reservarBoton = clone.querySelector('.btn');
+                reservarBoton.addEventListener('click', () => {
+                    // al momento de que el usuario de click, mandarlo a la pagina de reserva con el id del
+                    // usuario y del carro que quiere reservar
+                    window.location.href = `../frontend/reservar.html?id=${userId}&carId=${reservarBoton.dataset.id}`
+                })
 
-  document.addEventListener('DOMContentLoaded', () => {
-    loadAllCars();
-});
+
+            }
+            fragmentCamionetas.appendChild(clone);
+        }
+        if(element.categoria.includes('Coches de Lujo')) {
+            const clone = document.getElementById('rowCarros').content.cloneNode(true);
+            clone.querySelectorAll('img')[0].setAttribute('src', element.foto)
+            clone.querySelectorAll('b')[0].textContent = element.modelo;
+            clone.querySelectorAll('p')[0].textContent = element.descripcion;
+            clone.querySelectorAll('p')[1].textContent = 'Disponibles: ' + element.disponibles;
+            clone.querySelector('.btn').dataset.id = element.id;
+            // checar que el carro tenga carros disponibles, si tiene, el boton estara disponible
+            if(element.disponibles == 0) {
+                clone.querySelector('.btn').textContent = "Agotado";
+                clone.querySelector('.btn').classList.add('btn-danger')
+            } else {
+                // caso de que si tengamos alguno disponible
+                clone.querySelector('.btn').textContent = "Reservar";
+                clone.querySelector('.btn').classList.add('btn-success')
+                // funcionalidad para reservar el carro
+                const reservarBoton = clone.querySelector('.btn');
+                reservarBoton.addEventListener('click', () => {
+                    // al momento de que el usuario de click, mandarlo a la pagina de reserva con el id del
+                    // usuario y del carro que quiere reservar
+                    window.location.href = `../frontend/reservar.html?id=${userId}&carId=${reservarBoton.dataset.id}`
+                })
+            }
+
+            fragmentDeLujo.appendChild(clone);
+        }
+    });
+    carrosBody.appendChild(fragmentCarros);
+    camionetasBody.appendChild(fragmentCamionetas);
+    carrosLujoBody.appendChild(fragmentDeLujo);
+}

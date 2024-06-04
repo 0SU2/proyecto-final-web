@@ -24,10 +24,10 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     }
     break;
   case 'GET':
-    $accion = $_POST['accion'];
-    if($accion == 'todos') {
-      $userController->obtenerTodosCarros();
-    }
+      $accion = $_GET['accion'];
+      if($accion == 'todos') {
+        $userController->obtenerTodosCarros();
+      }
     if (isset($_GET['accion']) && $_GET['accion'] == 'getModelos') {
       $userController->getModelos();
     }

@@ -47,41 +47,23 @@
     <h1 class="text-center">Nuestros Modelos</h1>
     <p class="lead text-center">Descubre nuestra amplia gama de vehículos disponibles para ti.</p>
 
-    <div class="container-fluid"> <!-- Cambio a container-fluid -->
-      <div class="row justify-content-center"> <!-- Alineamos al centro -->
-        <div class="col-11"> <!-- Div contenedor de la tabla -->
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Modelo</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Disponibles</th>
-                <th scope="col">Estatus</th>
-              </tr>
-            </thead>
-            <tbody id="carrosBody">
-              <!-- Aquí se agregarán las filas de la tabla -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  
       <template id="rowCarros">
-        <tr>
-          <td>1</td>
-          <td>Modelo</td>
-          <td>categoria</td>
-          <td>Precio</td>
-          <td>Descripcion</td>
-          <td>Disponibles</td>
-          <td>Estatus</td>
-          
-        </tr>
+          <div class="col-md-4">
+            <div class="model-card">
+              <div class="container">
+                <h4><b>Modelo</b></h4>
+                <img src="./assets/images/auto1.jpg" alt="">
+                <p></p>
+                <p></p>
+              </div>
+              <div class="btnReservar">
+                <button type="button" class="btn"></button>
+              </div>
+            </div>
+          </div>
       </template>
+
+      
   
 <!-- ejemplo de como se verias los autos pero solo es html, arriba si muestra los carros disponibles-->
 
@@ -95,26 +77,25 @@
                   <ul class="nav nav-tabs nav-fill" id="navFlota" role="tablist">
                       <li class="nav-item col-12 col-md-2" role="presentation">
                           <a class="nav-link p-2 font-bold text-capitalize rounded-1 active" id="todos" data-bs-toggle="tab" href="#todos-los-autos" role="tab" aria-controls="todos-los-autos" aria-selected="true" onclick="filterVehicles('todos')">
-                              <img alt="flota-avis-todos" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="/images/categorias-filtro/flota-todos.webp" style="animation-duration: 500ms;">
-                              <span class="text-dark mt-1">Todos los Autos (18)</span>
+                              <span class="text-dark mt-1">Todos los Autos </span>
                           </a>
                       </li>
                       <li class="nav-item col-12 col-md-2" role="presentation">
                           <a class="nav-link p-2 font-bold text-capitalize rounded-1" id="Autos" data-bs-toggle="tab" href="#autos" role="tab" aria-controls="562" aria-selected="false" onclick="filterVehicles('autos')">
                               <img alt="flota-avis" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="https://imageshandlerv2api.avis.mx/api/v1/ImagesHandler/?filename=filtro-autos-avis.webp&amp;categoria=2" style="animation-duration: 500ms;">
-                              <span class="text-dark mt-1">Autos (7)</span>
+                              <span class="text-dark mt-1">Autos </span>
                           </a>
                       </li>
                       <li class="nav-item col-12 col-md-2" role="presentation">
                           <a class="nav-link p-2 font-bold text-capitalize rounded-1" id="Camionetas" data-bs-toggle="tab" href="#camionetas" role="tab" aria-controls="563" aria-selected="false" onclick="filterVehicles('camionetas')">
                               <img alt="flota-avis" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="https://imageshandlerv2api.avis.mx/api/v1/ImagesHandler/?filename=filtro-suv-avis.webp&amp;categoria=2" style="animation-duration: 500ms;">
-                              <span class="text-dark mt-1">Camionetas (6)</span>
+                              <span class="text-dark mt-1">Camionetas </span>
                           </a>
                       </li>
                       <li class="nav-item col-12 col-md-2" role="presentation">
                           <a class="nav-link p-2 font-bold text-capitalize rounded-1" id="Autos-de-Lujo" data-bs-toggle="tab" href="#autos-lujo" role="tab" aria-controls="564" aria-selected="false" onclick="filterVehicles('autos-lujo')">
                               <img alt="flota-avis" class="img-fluid d-block mb-1 mx-auto rounded animation fade-in" width="103" height="54" src="https://imageshandlerv2api.avis.mx/api/v1/ImagesHandler/?filename=filtro-minivan-avis.webp&amp;categoria=2" style="animation-duration: 500ms;">
-                              <span class="text-dark mt-1">Autos de Lujo (5)</span>
+                              <span class="text-dark mt-1">Autos de Lujo </span>
                           </a>
                       </li>
                   </ul>
@@ -124,131 +105,28 @@
     </div>
 
     <div id="autos">
-        <h2 class="my-4">Autos</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>Mazda 3 Sedan 2024</b></h4>
-                <img src="./assets/images/auto1.jpg" alt="Auto 1">
-                <p>Es un auto compacto que ofrece una sensación de calidad en todos los aspectos.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('Mazda 3 Sedan 2024')">Reservar</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>Aveo Sedan 2024</b></h4>
-                <img src="./assets/images/auto2.jpg" alt="Auto 2">
-                <p>Este auto es una opción económica para quienes buscan un vehículo pequeño y de facil maniobridad.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('Aveo Sedan 2024')">Reservar</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>Honda City 2024</b></h4>
-                <img src="./assets/images/auto3.jpg" alt="Auto 3">
-                <p>Este auto tiene un estilo elegante y ofrece gran eficiencia de combustible y confiabilidad.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('Honda City 2024')">Reservar</button>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      <h2 class="my-4">Autos</h2>
+      <div id="carrosBody" class="row">
+
       </div>
+
+    </div>
   
-      <div id="camionetas">
-        <h2 class="my-4">Camionetas</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>MG ZS 2024</b></h4>
-                <img src="./assets/images/camioneta1.jpg" alt="Camioneta 1">
-                <p>Camioneta económica y cómoda.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('MG ZS 2024')">Reservar</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>Nissan Kick 2024</b></h4>
-                <img src="./assets/images/camioneta2.jpg" alt="Camioneta 2">
-                <p>Camioneta espaciosa y cómoda.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('Nissan Kick 2024')">Reservar</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>Toyota Corolla Cross 2024</b></h4>
-                <img src="./assets/images/camioneta3.jpg" alt="Camioneta 3">
-                <p>Camioneta de mayor seguridad y tecnologia avanzada.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('Toyota Corolla Cross 2024')">Reservar</button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div id="camionetas">
+      <h2 class="my-4">Camionetas</h2>
+      <div id="camionetasBody" class="row">
+
       </div>
+    </div>
   
-      <div id="autos-lujo">
-        <h2 class="my-4">Coches de Lujo</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>Audi R8 2023</b></h4>
-                <img src="./assets/images/lujo1.jpg" alt="Coche de Lujo 1">
-                <p>Auto de lujo con motor v10 de 5.2 Litros y con tracción trasera, también tiene una transmisión de 7 velocidades.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('Audi R8 2023')">Reservar</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>BMW i8 2020</b></h4>
-                <img src="./assets/images/lujo2.jpg" alt="Coche de Lujo 2">
-                <p>Increíble auto con Turbo, 1.5 Litros y con transmisión de 6 velocidades automáticas con opción a un modo manual.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('BMW i8 2020')">Reservar</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="model-card">
-              <div class="container">
-                <h4><b>Acura NSX 2017</b></h4>
-                <img src="./assets/images/lujo3.jpg" alt="Coche de Lujo 3">
-                <p>Fantástico auto con motor V6 de 2.7 Litros.</p>
-              </div>
-              <div class="btnReservar">
-                <button type="button" class="btn btn-primary" onclick="reservar('Acura NSX 2017')">Reservar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div id="autos-lujo">
+    <h2 class="my-4">Coches de Lujo</h2>
+    <div id="carrosLujoBody" class="row">
+
+    </div>
   </div>
+
 </main>
 
 <footer class="footer-page">

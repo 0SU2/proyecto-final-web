@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const userId = urlParams.get('id');
+  // id del carro que quiere reservar
+  const carroId = urlParams.get('carId');
 
   if (userId) {
       document.getElementById('userId').value = userId;
